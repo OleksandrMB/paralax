@@ -5,10 +5,10 @@ import PageButtons from "../components/PageButtons";
 
 const HomePage = () => {
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-around w-full">
       <img
         src="/icons/Intersect.png"
-        className="w-[622px] h-[692px] absolute right-[23.104px] bottom-[70.34px]"
+        className="w-[622px] h-[692px] absolute right-[23.104px] bottom-[70.34px] z-10"
       />
       <div className="ml-[70px] mt-[184px]">
         <div className="flex flex-col gap-[63.57px]">
@@ -29,8 +29,6 @@ const HomePage = () => {
       <div className="flex mt-[113px] z-20">
         <TeamCard />
       </div>
-
-      <PageButtons />
     </div>
   );
 };
