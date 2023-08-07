@@ -1,10 +1,18 @@
 import { useState } from "react";
 
-const PageButtons = () => {
-  const [activeButton, setActiveButton] = useState(Number);
+interface PageButtonsProps {
+  activeButton: number;
+  setPageIndex: (pageIndex: number) => void;
+}
 
+const PageButtons: React.FC<PageButtonsProps> = ({
+  activeButton,
+  setPageIndex,
+}) => {
   const handleClick = (id: number) => {
-    return () => setActiveButton(id);
+    return () => {
+      setPageIndex(id);
+    };
   };
 
   return (

@@ -3,7 +3,7 @@ import QualityCards from "../components/QualityCards";
 const CompanyHighlights = () => {
   return (
     <div className="ml-[61px] mr-[61px]">
-      <div className="text-[#fff] flex flex-col gap-[27px] mt-[47px] mb-[45px]">
+      <div className="text-[#fff] flex flex-col gap-[27px] mt-[156px] mb-[45px]">
         <h1 className="font-epilogue-font text-[45px] leading-[140%] font-bold">
           Finding your Next Big Thing with Gart
         </h1>

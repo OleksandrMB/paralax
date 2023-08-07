@@ -17,7 +17,7 @@ const Header = ({ theme }: { theme: "dark" | "light" }) => {
           return (
             <button
               key={item}
-              className="font-neue-machina text-17 font-medium leading-150"
+              className="font-neue-machina text-17 font-medium leading-150 cursor-pointer"
             >
               {item}
             </button>

@@ -8,30 +8,40 @@ type CardPageType = {
   theme?: "dark" | "light";
 };
 
-const CardPage = ({
+interface CardPageProps extends PropsWithChildren<CardPageType> {
+  activeButton: number;
+  setPageIndex: (pageIndex: number) => void;
+}
+
+const CardPage: React.FC<CardPageProps> = ({
   children,
   theme = "light",
-}: PropsWithChildren<CardPageType>) => {
+  activeButton, // Destructure activeButton from props
+  setPageIndex, // Destructure setPageIndex from props
+}: CardPageProps) => {
   return (
-    <>
-      <Figures theme={theme} />
+    <div
+      className={`h-screen px-65 py-50`}
+      style={{
+        backgroundColor: `${theme === "dark" ? "#171624" : "#e3eaf4"}`,
+      }}
+    >
       <div
-        className={`h-screen px-65 py-50`}
-        style={{
-          backgroundColor: `${theme === "dark" ? "#171624" : "#e3eaf4"}`,
-        }}
+        className="rounded-36 border-10 border-70 bg-20 h-full backdrop-blur-[11px] overflow-y-hidden"
+        style={{ position: "relative" }}
       >
-        <div className="rounded-36 border-10 border-70 bg-20 h-full backdrop-blur-[11px]">
-          <Header theme={theme} />
-          <div className="flex justify-between">
-            {children}
-            <div className="justify-self: end z-20">
-              <PageButtons />
-            </div>
+        <Header theme={theme} />
+        <div className="flex justify-between">
+          <div className="flex flex-col">{children}</div>
+          <div className="justify-self: end z-20">
+            <PageButtons
+              activeButton={activeButton}
+              setPageIndex={setPageIndex}
+            />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
