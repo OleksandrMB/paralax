@@ -9,15 +9,15 @@ type CardPageType = {
 };
 
 interface CardPageProps extends PropsWithChildren<CardPageType> {
-  activeButton: number;
+  currentPage: number;
   setPageIndex: (pageIndex: number) => void;
 }
 
 const CardPage: React.FC<CardPageProps> = ({
   children,
   theme = "light",
-  activeButton, // Destructure activeButton from props
-  setPageIndex, // Destructure setPageIndex from props
+  currentPage,
+  setPageIndex,
 }: CardPageProps) => {
   return (
     <div
@@ -34,7 +34,7 @@ const CardPage: React.FC<CardPageProps> = ({
           <div className="flex flex-col">{children}</div>
           <div className="justify-self: end z-20">
             <PageButtons
-              activeButton={activeButton}
+              currentPage={currentPage}
               setPageIndex={setPageIndex}
             />
           </div>

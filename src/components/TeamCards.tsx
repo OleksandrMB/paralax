@@ -52,7 +52,7 @@ const TeamCards = () => {
           position="UI/UX Architect"
           linkedinUrl="https://www.linkedin.com/in/uiarchitector/"
           radius="rounded-[25.43px]"
-          size="small"
+          size="extraSmall"
         />
       </div>
       <div className="flex flex-col gap-[30px] ml-[10px]">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CardPage from "./components/CardPage";
 import HomePage from "./pages/HomePage";
 import CompanyHighlights from "./pages/CompanyHighlights";
@@ -6,12 +6,17 @@ import { useTransition, animated } from "@react-spring/web";
 import Figures from "./components/Figures";
 import Header from "./components/Header";
 
+enum Theme {
+  Light = "light",
+  Dark = "dark",
+}
+
 function App() {
-  const [index, setIndex] = useState(0);
+  const [currentPage, setcurrentPage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const numberOfPages = 2;
 
-  const transitions = useTransition(index, {
+  const transitions = useTransition(currentPage, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -24,9 +29,9 @@ function App() {
       if (isAnimating) return;
 
       if (e.deltaY > 0) {
-        setIndex((prev) => (prev + 1) % numberOfPages);
+        setcurrentPage((prev) => (prev + 1) % numberOfPages);
       } else {
-        setIndex((prev) => (prev - 1 + numberOfPages) % numberOfPages);
+        setcurrentPage((prev) => (prev - 1 + numberOfPages) % numberOfPages);
       }
     };
 
@@ -38,9 +43,14 @@ function App() {
   }, [isAnimating]);
 
   const determineTheme = () => {
-    if (index === 0) return "light";
-    if (index === 1) return "dark";
-    return "light"; // за замовчуванням світла тема
+    switch (currentPage) {
+      case 0:
+        return Theme.Light;
+      case 1:
+        return Theme.Dark;
+      default:
+        return Theme.Light;
+    }
   };
 
   return (
@@ -49,8 +59,8 @@ function App() {
 
       <CardPage
         theme={determineTheme()}
-        activeButton={index}
-        setPageIndex={setIndex}
+        currentPage={currentPage}
+        setPageIndex={setcurrentPage}
       >
         {transitions((style, item) => {
           switch (item) {
@@ -64,7 +74,11 @@ function App() {
                     width: "100%",
                   }}
                 >
-                  <Header theme={determineTheme()} changePage={setIndex} />
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
                   <HomePage />
                 </animated.div>
               );
@@ -78,12 +92,32 @@ function App() {
                     width: "100%",
                   }}
                 >
-                  <Header theme={determineTheme()} changePage={setIndex} />
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
                   <CompanyHighlights />
                 </animated.div>
               );
             default:
-              return null;
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <HomePage />
+                </animated.div>
+              );
           }
         })}
       </CardPage>

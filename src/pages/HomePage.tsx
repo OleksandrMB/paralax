@@ -1,7 +1,5 @@
-import React from "react";
 import GradientButton from "../components/GradientButton";
 import TeamCard from "../components/TeamCards";
-import PageButtons from "../components/PageButtons";
 
 const HomePage = () => {
   return (

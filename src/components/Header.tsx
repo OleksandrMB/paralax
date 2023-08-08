@@ -3,12 +3,13 @@ const headerButtons = ["Services", "AI Solutions", "Wow cases", "Get in touch"];
 interface HeaderProps {
   theme: "dark" | "light";
   changePage: (pageIndex: number) => void;
+  currentPage: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ theme, changePage }) => {
+const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   const handleButtonClick = (btnName: string) => {
     if (btnName === "Services" || btnName === "Journey") {
-      changePage(btnName === "Services" ? 1 : 0);
+      return () => changePage(btnName === "Services" ? 1 : 0);
     }
   };
 
@@ -26,12 +27,12 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage }) => {
       >
         {headerButtons.map((btnLabel) => {
           const label =
-            theme === "dark" && btnLabel === "Services" ? "Journey" : btnLabel;
+            currentPage === 0 && btnLabel === "Services" ? "Journey" : btnLabel;
           return (
             <button
               key={label}
               className="font-neue-machina text-17 font-medium leading-150 cursor-pointer"
-              onClick={() => handleButtonClick(label)}
+              onClick={handleButtonClick(label)}
             >
               {label}
             </button>

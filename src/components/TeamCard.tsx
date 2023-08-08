@@ -5,7 +5,7 @@ type CardType = {
   position: string;
   linkedinUrl: string;
   radius: string;
-  size: "large" | "mid" | "small";
+  size: "large" | "mid" | "small" | "extraSmall";
 };
 
 const stylesBySize = {
@@ -27,6 +27,13 @@ const stylesBySize = {
     imgSize: "90px",
     descriptionSize: "14px",
     nameSize: "17px",
+    positionSize: "13px",
+    logo: "30px",
+  },
+  extraSmall: {
+    imgSize: "80px",
+    descriptionSize: "12px",
+    nameSize: "15.5px",
     positionSize: "13px",
     logo: "30px",
   },
@@ -60,8 +67,8 @@ const TeamCard = ({
             src={image}
             alt={name}
             style={{
-              height: name === "Rodion Bychkoviak" ? "80px" : styles.imgSize,
-              width: name === "Rodion Bychkoviak" ? "80px" : styles.imgSize,
+              height: styles.imgSize,
+              width: styles.imgSize,
             }}
           />
 
@@ -69,10 +76,7 @@ const TeamCard = ({
             <p
               className=" font-helvetica-font font-medium leading-[140%]"
               style={{
-                fontSize:
-                  name === "Rodion Bychkoviak"
-                    ? "12px"
-                    : styles.descriptionSize,
+                fontSize: styles.descriptionSize,
               }}
             >
               {description}
@@ -84,8 +88,7 @@ const TeamCard = ({
               <div
                 className="text-black font-medium leading-[140%]"
                 style={{
-                  fontSize:
-                    name === "Rodion Bychkoviak" ? "15.5px" : styles.nameSize,
+                  fontSize: styles.nameSize,
                 }}
               >
                 {name}

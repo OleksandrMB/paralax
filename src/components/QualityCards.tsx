@@ -1,5 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
-
 const CARD_DATA = [
   {
     icon: "/icons/Brain.png",
