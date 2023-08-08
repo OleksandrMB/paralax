@@ -1,7 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import Header from "./Header";
-import Figures from "./Figures";
-import GradientButton from "./GradientButton";
 import PageButtons from "./PageButtons";
 
 type CardPageType = {
