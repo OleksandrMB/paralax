@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   const handleButtonClick = (btnName: string) => {
     if (btnName === "Services" || btnName === "Journey") {
-      return () => changePage(btnName === "Services" ? 1 : 0);
+      return () => changePage(btnName === "Services" ? 0 : 1);
     }
   };
 
