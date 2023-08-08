@@ -44,10 +44,10 @@ const TEAM_DATA = {
 const TeamCards = () => {
   return (
     <div className="flex mr-[23px]">
-      <div className="group relative w-[192px] h-[277px] mt-[223px]">
+      <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[260px] mt-[223px]">
         <TeamCard
           image="/imgs/RodionFull.png"
-          description="Architecture and development of the company"
+          description="Developing strategies for visual and user experience, ensuring alignment of design with company’s overall goals and vision. "
           name="Rodion Bychkoviak"
           position="UI/UX Architect"
           linkedinUrl="https://www.linkedin.com/in/uiarchitector/"
@@ -56,7 +56,7 @@ const TeamCards = () => {
         />
       </div>
       <div className="flex flex-col gap-[30px] ml-[10px]">
-        <div className="group w-[237px] h-[337px] relative">
+        <div className="group img-breakPoint:w-[237px] img-breakPoint:h-[337px] w-[200px] h-[310px] relative">
           <TeamCard
             image="/imgs/IvanFull.png"
             description="Architecture and development of the company"
@@ -67,7 +67,7 @@ const TeamCards = () => {
             size="large"
           />
         </div>
-        <div className="group w-[213px] h-[304px] ml-[13px] relative">
+        <div className="group img-breakPoint:w-[213px] img-breakPoint:h-[304px] w-[190px] h-[290px] ml-[13px] relative">
           <TeamCard
             image="/imgs/ElenaFull.png"
             description="Setting and achieving organizational objectives, human resource planning"
@@ -80,7 +80,7 @@ const TeamCards = () => {
         </div>
       </div>
       <div className="flex flex-col gap-[26px] ml-[19px]">
-        <div className="group relative w-[192px] h-[277px] mt-[67px] ml-[8px]">
+        <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[260px] mt-[53px] ml-[8px]">
           <TeamCard
             image="/imgs/OksanaFull.png"
             description="Transferring business needs to working solutions"
@@ -92,11 +92,7 @@ const TeamCards = () => {
             size="small"
           />
         </div>
-        <div className="group relative w-[192px] h-[277px]">
-          {/* <img
-          src="/imgs/DimaFull.png"
-          className={`w-[135px] h-[194px] rounded-[25.43px] object-cover`}
-        /> */}
+        <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[250px]">
           <TeamCard
             image="/imgs/DimaFull.png"
             description="Technical planning and managing the execution"

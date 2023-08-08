@@ -113,6 +113,7 @@ const QualityCards = () => {
             title={data.title}
             paragraph={data.paragraph}
             cardNumber={data.cardNumber}
+            key={data.cardNumber}
           />
         );
       })}

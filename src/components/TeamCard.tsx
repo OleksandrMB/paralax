@@ -49,7 +49,7 @@ const TeamCard = ({
         className={`w-full h-full ${radius} object-cover group-hover:invisible`}
       />
       <div
-        className={`invisible group-hover:visible cursor-pointer bg-opacity-10 bg-white w-full h-full ${radius} pt-6 pr-4 pb-6 pl-4 flex flex-col gap-15 items-start justify-start absolute -top-0 ring-0`}
+        className={`invisible hover:border hover:border-[#564CEC] group-hover:visible cursor-pointer bg-opacity-10 bg-white w-full h-full ${radius} pt-6 pr-4 pb-6 pl-4 flex flex-col gap-15 items-start justify-start absolute -top-0 ring-0`}
         style={{
           backdropFilter: "blur(5.9px)",
         }}
@@ -59,14 +59,20 @@ const TeamCard = ({
             className={`rounded-full relative mb-[7px] object-top object-cover`}
             src={image}
             alt={name}
-            style={{ height: styles.imgSize, width: styles.imgSize }}
+            style={{
+              height: name === "Rodion Bychkoviak" ? "80px" : styles.imgSize,
+              width: name === "Rodion Bychkoviak" ? "80px" : styles.imgSize,
+            }}
           />
 
           <div className="text-black flex flex-row gap-2 items-start justify-start self-stretch flex-1 relative">
             <p
               className=" font-helvetica-font font-medium leading-[140%]"
               style={{
-                fontSize: styles.descriptionSize,
+                fontSize:
+                  name === "Rodion Bychkoviak"
+                    ? "12px"
+                    : styles.descriptionSize,
               }}
             >
               {description}

@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       screens: {
         "custom-sm": "500px",
-        "custom-md": "1596px",
+        "custom-md": "1592px",
+        "img-breakPoint": "1700px",
       },
       borderRadius: {
         36: "36px",

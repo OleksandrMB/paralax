@@ -21,8 +21,6 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
-      e.preventDefault();
-
       if (isAnimating) return;
 
       if (e.deltaY > 0) {
