@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "custom-sm": "500px",
+        "custom-md": "1596px",
+      },
       borderRadius: {
         36: "36px",
       },
@@ -64,6 +68,7 @@ module.exports = {
       boxShadow: {
         custom: "0px 0px 4px -1px rgba(0, 0, 0, 0.40)",
       },
+
       width: ["responsive", "hover", "focus", "group-hover"],
       translate: ["responsive", "hover", "focus", "group-hover"],
     },
