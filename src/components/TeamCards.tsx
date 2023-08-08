@@ -3,11 +3,11 @@ import React from "react";
 import TeamCard from "./TeamCard";
 
 const TEAM_DATA = {
-  Rodeon: {
+  Rodion: {
     image: "/imgs/RodeonFull.png",
     descriotion: "Architecture and development of the company",
-    name: "Ivan Kosyuk",
-    position: "Lead Design",
+    name: "Rodion Bychkoviak",
+    position: "UI/UX Architect",
     likdnUrl: "",
   },
   Ivan: {

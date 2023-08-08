@@ -30,7 +30,6 @@ const CardPage: React.FC<CardPageProps> = ({
         className="rounded-36 border-10 border-70 bg-20 h-full backdrop-blur-[11px] overflow-y-hidden"
         style={{ position: "relative" }}
       >
-        <Header theme={theme} />
         <div className="flex justify-between">
           <div className="flex flex-col">{children}</div>
           <div className="justify-self: end z-20">

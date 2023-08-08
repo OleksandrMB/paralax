@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CompanyHighlights from "./pages/CompanyHighlights";
 import { useTransition, animated } from "@react-spring/web";
 import Figures from "./components/Figures";
+import Header from "./components/Header";
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -47,6 +48,7 @@ function App() {
   return (
     <div className="h-screen overflow-y-clip">
       <Figures theme={determineTheme()} />
+
       <CardPage
         theme={determineTheme()}
         activeButton={index}
@@ -64,6 +66,7 @@ function App() {
                     width: "100%",
                   }}
                 >
+                  <Header theme={determineTheme()} changePage={setIndex} />
                   <HomePage />
                 </animated.div>
               );
@@ -77,6 +80,7 @@ function App() {
                     width: "100%",
                   }}
                 >
+                  <Header theme={determineTheme()} changePage={setIndex} />
                   <CompanyHighlights />
                 </animated.div>
               );

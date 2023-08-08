@@ -85,8 +85,8 @@ const TeamCard = ({
                       y2="-17.9511"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stop-color="#32E1F9" stop-opacity="0.5" />
-                      <stop offset="0.734118" stop-color="#564CEC" />
+                      <stop stopColor="#32E1F9" stopOpacity="0.5" />
+                      <stop offset="0.734118" stopColor="#564CEC" />
                     </linearGradient>
                   </defs>
                 </svg>

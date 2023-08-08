@@ -15,7 +15,7 @@ module.exports = {
       },
       backgroundColor: {
         20: "rgba(255, 255, 255, 0.20)",
-        1: "gba(255, 255, 255, 0.01)",
+        1: "rba(255, 255, 255, 0.01)",
       },
       borderColor: {
         70: "rgba(255, 255, 255, 0.70)",
@@ -39,7 +39,7 @@ module.exports = {
       fontFamily: {
         "neue-machina": ["Neue Machina", "sans-serif"],
         "epilogue-font": ["Epilogue", "sans-serif"],
-        "helvetica-font": ["Helvetica", "sans-serif"],
+        "helvetica-font": ["Helvetica Neue", "sans-serif"],
       },
       fontSize: {
         17: "17px",

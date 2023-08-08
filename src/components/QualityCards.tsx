@@ -64,7 +64,7 @@ const QualityCard = ({ icon, title, paragraph, cardNumber }: CardData) => {
             {cardNumber}
           </div>
         </div>
-        <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center shrink-0 relative">
+        <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center shrink-0 relative mb-[20px]">
           <img
             src={icon}
             className="shrink-0 relative overflow-visible"
@@ -86,7 +86,7 @@ const QualityCard = ({ icon, title, paragraph, cardNumber }: CardData) => {
           </div>
           <div className="flex flex-row gap-[9px] items-center justify-center self-stretch shrink-0 relative">
             <div
-              className="text-[#ffffff] text-center relative flex-1"
+              className="text-[#ffffff] text-center relative flex-1 pl-[22px] pr-[22px]"
               style={{
                 font: "400 14px/140% 'Epilogue', sans-serif",
                 height: "120px",

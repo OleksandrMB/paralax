@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface PageButtonsProps {
   activeButton: number;
   setPageIndex: (pageIndex: number) => void;
@@ -16,7 +14,7 @@ const PageButtons: React.FC<PageButtonsProps> = ({
   };
 
   return (
-    <div className=" flex flex-col gap-[10px] mt-[184px]">
+    <div className=" flex flex-col gap-[10px] mt-[363px]">
       {Array(9)
         .fill(null)
         .map((_, index) => (
