@@ -21,9 +21,13 @@ const HomePage = () => {
               <br /> Better and Faster
             </p>
           </div>
-          <div className="flex gap-[18px] mt-[27.25px]">
-            <GradientButton>Get in touch</GradientButton>
-            <GradientButton>Kick off</GradientButton>
+          <div className="flex gap-[230px] mt-[27.25px] h-[59px] w-full">
+            <div className="">
+              <GradientButton>Get in touch</GradientButton>
+            </div>
+            <div className="">
+              <GradientButton>Kick off</GradientButton>
+            </div>
           </div>
         </div>
       </div>

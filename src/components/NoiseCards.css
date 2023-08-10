@@ -1,0 +1,8 @@
+.card {
+  background-image: url("../../public/imgs/NoiseTexture.png");
+}
+
+.card:hover {
+  background-image: url("../../public/imgs/NoiseTextureActive.png");
+  background-color: #cadfff33;
+}

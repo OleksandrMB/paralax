@@ -5,6 +5,9 @@ import CompanyHighlights from "./pages/CompanyHighlights";
 import { useTransition, animated } from "@react-spring/web";
 import Figures from "./components/Figures";
 import Header from "./components/Header";
+import KickOffPage from "./pages/KickOffPage";
+import ServicesPage from "./pages/ServicesPage";
+import AIPage from "./pages/AIPage";
 
 enum Theme {
   Light = "light",
@@ -14,7 +17,7 @@ enum Theme {
 function App() {
   const [currentPage, setcurrentPage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const numberOfPages = 2;
+  const numberOfPages = 5;
 
   const transitions = useTransition(currentPage, {
     from: { opacity: 0 },
@@ -47,6 +50,12 @@ function App() {
       case 0:
         return Theme.Light;
       case 1:
+        return Theme.Dark;
+      case 2:
+        return Theme.Light;
+      case 3:
+        return Theme.Light;
+      case 4:
         return Theme.Dark;
       default:
         return Theme.Light;
@@ -98,6 +107,60 @@ function App() {
                     changePage={setcurrentPage}
                   />
                   <CompanyHighlights />
+                </animated.div>
+              );
+            case 2:
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <KickOffPage />
+                </animated.div>
+              );
+            case 3:
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <ServicesPage />
+                </animated.div>
+              );
+            case 4:
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <AIPage />
                 </animated.div>
               );
             default:

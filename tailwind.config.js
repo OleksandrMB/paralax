@@ -75,5 +75,15 @@ module.exports = {
     },
   },
 
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".grid-cols-auto": {
+          "grid-template-columns": "repeat(auto-fit, minmax(380px, 1fr))",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
