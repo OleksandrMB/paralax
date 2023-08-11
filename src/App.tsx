@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import KickOffPage from "./pages/KickOffPage";
 import ServicesPage from "./pages/ServicesPage";
 import AIPage from "./pages/AIPage";
+import SolutionsPage from "./pages/SolutionsPage";
+import TrustPage from "./pages/TrustPage";
 
 enum Theme {
   Light = "light",
@@ -17,7 +19,7 @@ enum Theme {
 function App() {
   const [currentPage, setcurrentPage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const numberOfPages = 5;
+  const numberOfPages = 7;
 
   const transitions = useTransition(currentPage, {
     from: { opacity: 0 },
@@ -57,6 +59,10 @@ function App() {
         return Theme.Light;
       case 4:
         return Theme.Dark;
+      case 5:
+        return Theme.Light;
+      case 6:
+        return Theme.Light;
       default:
         return Theme.Light;
     }
@@ -161,6 +167,42 @@ function App() {
                     changePage={setcurrentPage}
                   />
                   <AIPage />
+                </animated.div>
+              );
+            case 5:
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <SolutionsPage />
+                </animated.div>
+              );
+            case 6:
+              return (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    top: 0,
+                    width: "100%",
+                  }}
+                >
+                  <Header
+                    currentPage={currentPage}
+                    theme={determineTheme()}
+                    changePage={setcurrentPage}
+                  />
+                  <TrustPage />
                 </animated.div>
               );
             default:
