@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./pages/**/*.{html,js}",
@@ -68,6 +69,9 @@ module.exports = {
       }),
       boxShadow: {
         custom: "0px 0px 4px -1px rgba(0, 0, 0, 0.40)",
+      },
+      transform: {
+        "perspective-1000": "perspective(1000px)",
       },
 
       width: ["responsive", "hover", "focus", "group-hover"],

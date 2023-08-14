@@ -8,9 +8,32 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   const handleButtonClick = (btnName: string) => {
-    if (btnName === "Services" || btnName === "Journey") {
-      return () => changePage(btnName === "Services" ? 0 : 1);
-    }
+    return () => {
+      let pageIndex;
+
+      switch (btnName) {
+        case "Services":
+          pageIndex = 0;
+          break;
+        case "Journey":
+          pageIndex = 1;
+          break;
+        case "AI Solutions":
+          pageIndex = 5;
+          break;
+        case "Wow cases":
+          pageIndex = 4;
+          break;
+        case "Get in touch":
+          pageIndex = 0;
+          break;
+        default:
+          pageIndex = 0;
+          break;
+      }
+
+      changePage(pageIndex);
+    };
   };
 
   return (

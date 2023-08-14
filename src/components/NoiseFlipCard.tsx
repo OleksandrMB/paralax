@@ -11,7 +11,7 @@ const NoiseFlipCard = ({
 }) => {
   return (
     <div
-      className={`group ${
+      className={`group card ${
         large ? "h-[369px]" : "h-[280px]"
       } relative flex justify-center items-center bg-[rgba(202, 223, 255, 0.2) border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer rounded-[20px]`}
     >

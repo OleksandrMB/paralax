@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Setting perspective for 3D transforms */
+.glide__slides {
+  perspective: 1000px;
+}
+
+/* Default transformation for all slides (turn to the left) */
+.glide__slide {
+  transition: transform 0.3s;
+  transform: rotateY(45deg);
+}
+
+/* Transformation for the active (center) slide */
+.glide__slide.glide__slide--active {
+  transform: rotateY(0deg);
+}
+
+/* Transformation for the left side of the active slide */
+.glide__slide.glide__slide--left {
+  transform: rotateY(45deg);
+}
+
+/* Transformation for the right side of the active slide */
+.glide__slide.glide__slide--right {
+  transform: rotateY(-45deg);
+}
+
 @font-face {
   font-family: "Neue Machina";
   src: url("../public/fonts/NeueMachina-Medium.woff") format("woff2");

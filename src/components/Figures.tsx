@@ -1,6 +1,12 @@
 import { animated, useSpring } from "@react-spring/web";
 
-const Figures = ({ theme }: { theme: "dark" | "light" }) => {
+const Figures = ({
+  theme,
+  currentPage,
+}: {
+  theme: "dark" | "light";
+  currentPage: number;
+}) => {
   const styles = useSpring({
     to: {
       topValue: theme === "dark" ? "-270px" : "-150px",

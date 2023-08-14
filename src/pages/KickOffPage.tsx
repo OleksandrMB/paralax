@@ -43,7 +43,7 @@ const KickOffPage = () => {
           and business.
         </p>
       </div>
-      <div className="grid grid-cols-6 gap-x-[20px] gap-y-[50px] mt-[45px]">
+      <div className="grid grid-cols-6 gap-x-[20px] gap-y-[40px] mt-[45px]">
         {NoiseCardsData.map((data, index) => {
           const isLastTwo = index >= NoiseCardsData.length - 2;
           return (
@@ -56,7 +56,7 @@ const KickOffPage = () => {
           );
         })}
       </div>
-      <div className="flex justify-center mt-[10px]">
+      <div className="flex justify-center mt-[20px]">
         {/* add margin top 30px */}
         <GradientButton>Get in touch</GradientButton>
       </div>
