@@ -1,5 +1,28 @@
 import { animated, useSpring } from "@react-spring/web";
 
+const getStyleForPage = (pageNumber: number) => {
+  switch (pageNumber) {
+    case 0:
+      return {
+        firstElement: { left: "68px", top: "-150px" },
+        secondElement: { left: "10px", bottom: "-50px" },
+        thirdElement: { right: "57px", bottom: "-20px" },
+      };
+    case 1:
+      return {
+        firstElement: { left: "320px", top: "270px" },
+        secondElement: { left: "-50px", bottom: "-70px" },
+        thirdElement: { right: "-50px", bottom: "-100px" },
+      };
+    default:
+      return {
+        firstElement: {},
+        secondElement: {},
+        thirdElement: {},
+      };
+  }
+};
+
 const Figures = ({
   theme,
   currentPage,
@@ -7,14 +30,102 @@ const Figures = ({
   theme: "dark" | "light";
   currentPage: number;
 }) => {
+  const getStyleForPage = (page: number) => {
+    switch (page) {
+      case 0:
+        return {
+          topValue: "-150px",
+          leftValue1: "68px",
+          bottomValue1: "-50px",
+          leftValue2: "10px",
+          bottomValue2: "-20px",
+          rightValue: "57px",
+        };
+      case 1:
+        return {
+          topValue: "-270px",
+          leftValue1: "320px",
+          bottomValue1: "-70px",
+          leftValue2: "-50px",
+          bottomValue2: "-100px",
+          rightValue: "-50px",
+        };
+      case 2:
+        return {
+          topValue: "-60px",
+          leftValue1: "-60px",
+          bottomValue1: "-50px",
+          leftValue2: "-30px",
+          bottomValue2: "-100px",
+          rightValue: "-50px",
+        };
+      case 3:
+        return {
+          topValue: "-150px",
+          leftValue1: "68px",
+          bottomValue1: "-50px",
+          leftValue2: "10px",
+          bottomValue2: "-20px",
+          rightValue: "57px",
+        };
+      case 4:
+        return {
+          topValue: "-150px",
+          leftValue1: "68px",
+          bottomValue1: "-50px",
+          leftValue2: "10px",
+          bottomValue2: "-20px",
+          rightValue: "57px",
+        };
+      case 5:
+        return {
+          topValue: "-60px",
+          leftValue1: "-60px",
+          bottomValue1: "-50px",
+          leftValue2: "-30px",
+          bottomValue2: "-100px",
+          rightValue: "-50px",
+        };
+      case 6:
+        return {
+          topValue: "-270px",
+          leftValue1: "-10px",
+          bottomValue1: "-20px",
+          leftValue2: "20px",
+          bottomValue2: "-10px",
+          rightValue: "70px",
+        };
+      case 7:
+        return {
+          topValue: "-150px",
+          leftValue1: "68px",
+          bottomValue1: "-40px",
+          leftValue2: "0px",
+          bottomValue2: "-10px",
+          rightValue: "-70px",
+        };
+      default:
+        return {
+          topValue: "0px",
+          leftValue1: "0px",
+          bottomValue1: "0px",
+          leftValue2: "0px",
+          bottomValue2: "0px",
+          rightValue: "0px",
+        };
+    }
+  };
+
+  const pageStyles = getStyleForPage(currentPage);
+
   const styles = useSpring({
     to: {
-      topValue: theme === "dark" ? "-270px" : "-150px",
-      leftValue1: theme === "dark" ? "320px" : "68px",
-      bottomValue1: theme === "dark" ? "-70px" : "-50px",
-      leftValue2: theme === "dark" ? "-50px" : "10px",
-      bottomValue2: theme === "dark" ? "-100px" : "-20px",
-      rightValue: theme === "dark" ? "-50px" : "57px",
+      topValue: pageStyles.topValue,
+      leftValue1: pageStyles.leftValue1,
+      bottomValue1: pageStyles.bottomValue1,
+      leftValue2: pageStyles.leftValue2,
+      bottomValue2: pageStyles.bottomValue2,
+      rightValue: pageStyles.rightValue,
     },
     from: {
       topValue: theme === "light" ? "-270px" : "-150px",
@@ -26,15 +137,18 @@ const Figures = ({
     },
   });
 
+  const firstElementSize =
+    currentPage === 2 || currentPage === 5 ? "216px" : "462px";
+
   return (
     <div className="h-screen w-screen overflow-clip absolute">
       <animated.svg
-        width="217"
-        height="216"
+        width={firstElementSize}
+        height={firstElementSize}
         viewBox="0 0 217 216"
         fill="none"
         xmlns="http://www.w3.org/2000/animated.svg"
-        className="absolute w-[462px] h-[462px]"
+        className="absolute"
         style={{
           top: styles.topValue,
           left: styles.leftValue1,
