@@ -39,10 +39,21 @@ const TEAM_DATA = {
   },
 };
 
+const imgSizes = {
+  rodion: {
+    h: { sm: "", md: "", lg: "" },
+    w: { sm: "", md: "", lg: "" },
+  },
+  ivan: {
+    h: { sm: "", md: "", lg: "" },
+    w: { sm: "", md: "", lg: "" },
+  },
+};
+
 const TeamCards = () => {
   return (
     <div className="flex mr-[23px]">
-      <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[260px] mt-[223px]">
+      <div className="group relative img-MdBreakPoint:w-[182px]  img-MdBreakPoint:h-[260px] img-LgbreakPoint:w-[192px] img-LgbreakPoint:h-[277px] w-[119px] h-[200px] mt-[223px]">
         <TeamCard
           image="/imgs/RodionFull.png"
           description="Developing strategies for visual and user experience, ensuring alignment of design with company’s overall goals and vision. "
@@ -54,7 +65,7 @@ const TeamCards = () => {
         />
       </div>
       <div className="flex flex-col gap-[30px] ml-[10px]">
-        <div className="group img-breakPoint:w-[237px] img-breakPoint:h-[337px] w-[200px] h-[310px] relative">
+        <div className="group img-MdBreakPoint:w-[200px] img-MdBreakPoint:h-[310px] img-LgbreakPoint:w-[237px] img-LgbreakPoint:h-[337px] w-[154px] h-[256px] relative">
           <TeamCard
             image="/imgs/IvanFull.png"
             description="Architecture and development of the company"
@@ -65,7 +76,7 @@ const TeamCards = () => {
             size="large"
           />
         </div>
-        <div className="group img-breakPoint:w-[213px] img-breakPoint:h-[304px] w-[190px] h-[290px] ml-[13px] relative">
+        <div className="group img-MdBreakPoint:w-[190px] img-MdBreakPoint:h-[290px] img-LgbreakPoint:w-[213px] img-LgbreakPoint:h-[304px] ml-[13px] w-[138px] h-[228px] relative">
           <TeamCard
             image="/imgs/ElenaFull.png"
             description="Setting and achieving organizational objectives, human resource planning"
@@ -78,7 +89,7 @@ const TeamCards = () => {
         </div>
       </div>
       <div className="flex flex-col gap-[26px] ml-[19px]">
-        <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[260px] mt-[53px] ml-[8px]">
+        <div className="group relative img-MdBreakPoint:w-[182px] img-MdBreakPoint:h-[260px] img-LgbreakPoint:w-[192px] img-LgbreakPoint:h-[277px] w-[124px] h-[178px] mt-[53px] ml-[8px]">
           <TeamCard
             image="/imgs/OksanaFull.png"
             description="Transferring business needs to working solutions"
@@ -90,7 +101,7 @@ const TeamCards = () => {
             size="small"
           />
         </div>
-        <div className="group relative img-breakPoint:w-[192px] img-breakPoint:h-[277px] w-[182px] h-[250px]">
+        <div className="group relative img-MdBreakPoint:w-[182px] img-MdBreakPoint:h-[250px] img-LgbreakPoint:w-[192px] img-LgbreakPoint:h-[277px] w-[107px] h-[178px]">
           <TeamCard
             image="/imgs/DimaFull.png"
             description="Technical planning and managing the execution"

@@ -9,9 +9,10 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "custom-sm": "500px",
+        "on-tablet": "744px",
         "custom-md": "1592px",
-        "img-breakPoint": "1700px",
+        "img-LgBreakPoint": "1700px",
+        "img-MdBreakPoint": "1207px",
       },
       borderRadius: {
         36: "36px",

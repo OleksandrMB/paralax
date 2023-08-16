@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   };
 
   return (
-    <div className="px-70 flex justify-between items-center h-108 self-stretch">
+    <div className="px-[25px] lg:px-[60px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch">
       <img
         src={theme === "dark" ? "/icons/whiteLogo.png" : "/icons/blackLogo.png"}
         alt="gart.tech logo"
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
         style={{
           color: `${theme === "dark" ? "#fff" : "#222"}`,
         }}
-        className="flex gap-5"
+        className=" gap-5 hidden lg:flex"
       >
         {headerButtons.map((btnLabel) => {
           const label =

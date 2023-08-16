@@ -18,7 +18,7 @@ const CardPage: React.FC<CardPageProps> = ({
 }: CardPageProps) => {
   return (
     <div
-      className={`h-screen px-65 py-50`}
+      className={`h-screen p-[35px] lg:px-65 lg:py-50`}
       style={{
         backgroundColor: `${theme === "dark" ? "#171624" : "#e3eaf4"}`,
       }}
@@ -28,7 +28,7 @@ const CardPage: React.FC<CardPageProps> = ({
         style={{ position: "relative" }}
       >
         <div className="flex justify-between">
-          <div className="flex flex-col">{children}</div>
+          <div className="flex flex-col w-full">{children}</div>
           <div className="justify-self: end z-20">
             <PageButtons
               currentPage={currentPage}
