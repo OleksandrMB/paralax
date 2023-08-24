@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
-import Glide from "@glidejs/glide";
-import "@glidejs/glide/dist/css/glide.core.css";
-import "@glidejs/glide/dist/css/glide.theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
+
+// // Import Swiper styles
+import "swiper/swiper.min.css";
+
+SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
 const Slide = () => {
   return (
-    <div className="glide__slide flex flex-col justify-center gap-[20px] bg-white px-[30px] py-[47px] h-[343px]">
+    <div className="flex flex-col justify-center items-center gap-[7px] bg-white px-[30px] py-[47px] h-full">
       <img
-        className="h-[245px] w-[381px]"
+        className="h-full w-[508px] ml-[-10px]"
         src="/imgs/wowImg.png"
         alt="Healthcare platform img"
       />
@@ -18,62 +21,35 @@ const Slide = () => {
   );
 };
 
-const CoverflowCarousel: React.FC = () => {
-  useEffect(() => {
-    const glide = new Glide(".glide", {
-      type: "carousel",
-      startAt: 0,
-      perView: 3,
-      focusAt: "center",
-      gap: 10,
-      breakpoints: {
-        800: {
-          perView: 1,
-        },
-      },
-    });
-
-    glide.on(["mount.after", "run.after"], () => {
-      const slides = document.querySelectorAll(".glide__slide");
-      const activeSlide = document.querySelector(".glide__slide--active");
-
-      slides.forEach((slide) => {
-        slide.classList.remove(
-          "glide__slide--left",
-          "glide__slide--right",
-          "glide__slide--inactive"
-        );
-        slide.classList.add("glide__slide--inactive");
-      });
-
-      activeSlide?.classList.remove("glide__slide--inactive");
-      const prevSlide = activeSlide?.previousElementSibling;
-      if (prevSlide) {
-        prevSlide.classList.remove("glide__slide--inactive");
-        prevSlide.classList.add("glide__slide--left");
-      }
-
-      const nextSlide = activeSlide?.nextElementSibling;
-      if (nextSlide) {
-        nextSlide.classList.remove("glide__slide--inactive");
-        nextSlide.classList.add("glide__slide--right");
-      }
-    });
-
-    glide.mount();
-  }, []);
-
+export default function SwiperCoverflow() {
   return (
-    <div className="glide">
-      <div className="glide__track" data-glide-el="track">
-        <div className="glide__slides">
-          <Slide />
-          <Slide />
-          <Slide />
-        </div>
-      </div>
-    </div>
+    <Swiper
+      navigation
+      pagination={{ clickable: true }}
+      effect="coverflow"
+      coverflowEffect={{
+        rotate: 50,
+        stretch: -10,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      }}
+      slidesPerView={2}
+      initialSlide={1}
+      loop={true}
+      centeredSlides
+      style={{ height: "458px", width: "100%" }}
+      grabCursor={true}
+    >
+      <SwiperSlide>
+        <Slide />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Slide />
+      </SwiperSlide>
+    </Swiper>
   );
-};
-
-export default CoverflowCarousel;
+}

@@ -1,8 +1,18 @@
-import React, { PropsWithChildren } from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React from "react";
 
-const GradientButton: React.FC<PropsWithChildren> = ({ children }) => {
+type GradientButtonProps = {
+  children: React.ReactNode;
+  full?: boolean;
+};
+
+const GradientButton = ({ children, full = false }: GradientButtonProps) => {
   return (
-    <div className="group absolute h-[59px] w-[287px] lg:w-[212px] z-50">
+    <div
+      className={`group absolute h-[59px] ${
+        full ? "w-full" : "w-[313px]"
+      } md:w-[287px] lg:w-[212px] z-50`}
+    >
       {/* fix gradient */}
       <button className=" group-hover:backdrop-filter:blur-[10px] w-full h-full rounded-[2000px] text-white font-helvetica-font font-bold leading-[125%] absolute z-10 text-center group-hover:bg-1 group-hover:backdrop-blur group-hover:border group-hover:border-[#564CEC] group-hover:ease-in-out duration-100 ">
         {children}

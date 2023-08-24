@@ -71,7 +71,7 @@ function App() {
   };
 
   return (
-    <div className="h-screen overflow-y-clip">
+    <div className="h-screen overflow-clip">
       <Figures theme={determineTheme()} currentPage={currentPage} />
 
       <CardPage
@@ -86,6 +86,7 @@ function App() {
               position: "absolute",
               top: 0,
               width: "100%",
+              height: "100%",
             }}
           >
             <Header

@@ -18,17 +18,19 @@ const CardPage: React.FC<CardPageProps> = ({
 }: CardPageProps) => {
   return (
     <div
-      className={`h-screen p-[35px] lg:px-65 lg:py-50`}
+      className={`h-screen p-[20px] mg:p-[35px] lg:px-65 lg:py-50`}
       style={{
         backgroundColor: `${theme === "dark" ? "#171624" : "#e3eaf4"}`,
       }}
     >
       <div
-        className="rounded-36 border-10 border-70 bg-20 h-full backdrop-blur-[11px] overflow-y-hidden"
+        className="rounded-36 border-[5px] lg:border-10 border-70 bg-20 h-full backdrop-blur-[11px] overflow-y-"
         style={{ position: "relative" }}
       >
         <div className="flex justify-between">
-          <div className="flex flex-col w-full">{children}</div>
+          <div className="flex flex-col w-full ml-[15px] md:ml-[35px] lg:ml-[35px]">
+            {children}
+          </div>
           <div className="justify-self: end z-20">
             <PageButtons
               currentPage={currentPage}

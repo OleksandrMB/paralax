@@ -26,7 +26,7 @@ const PageButtons: React.FC<PageButtonsProps> = ({
               currentPage === index
                 ? "bg-gradient-to-b from-[#32E1F9] to-[#564CEC] to-[70%]"
                 : "bg-white"
-            } rounded-[181px] mr-[24px]  shadow-custom cursor-pointer ease-in duration-150`}
+            } rounded-[181px] mr-[7px] md:mr-[14px] lg:mr-[24px]  shadow-custom cursor-pointer ease-in duration-150`}
             onClick={handleClick(index)}
           />
         ))}

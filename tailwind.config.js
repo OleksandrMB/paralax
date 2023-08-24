@@ -13,6 +13,12 @@ module.exports = {
         "custom-md": "1592px",
         "img-LgBreakPoint": "1700px",
         "img-MdBreakPoint": "1207px",
+        "img-startPoint": "420px",
+        "qualityCards-betwen": "1448px",
+        "qualityCards-display": "1420px",
+        "services-1430": "1430px",
+        "services-870": "870px",
+        "services-678": "678px",
       },
       borderRadius: {
         36: "36px",

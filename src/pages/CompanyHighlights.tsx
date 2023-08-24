@@ -2,9 +2,9 @@ import QualityCards from "../components/QualityCards";
 
 const CompanyHighlights = () => {
   return (
-    <div className="ml-[61px] mr-[61px]">
-      <div className="text-white flex flex-col gap-[27px] mt-[47px] mb-[45px]">
-        <h1 className="font-epilogue-font text-[45px] leading-[140%] font-bold">
+    <div className="ml-[35px] mr-[61px] overflow-hidden">
+      <div className="text-white flex flex-col gap-[27px] mt-[25px] qualityCards-betwen:mt-[47px] mb-[45px]">
+        <h1 className="font-epilogue-font text-[32px] qualityCards-betwen:text-[45px] leading-[140%] font-bold">
           Finding your Next Big Thing with Gart
         </h1>
         <p className="font-helvetica-font text-[22px] font-normal leading-[150%]">
