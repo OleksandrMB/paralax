@@ -53,7 +53,7 @@ const TeamCard = ({
     <>
       <img
         src={image}
-        className={`w-full h-full ${radius} object-cover group-hover:invisible`}
+        className={`w-full h-full ${radius} object-cover group-hover:invisible shrink`}
       />
       <div
         className={`invisible hover:border hover:border-[#564CEC] group-hover:visible cursor-pointer bg-opacity-10 bg-white w-full h-full ${radius} pt-6 pr-4 pb-6 pl-4 flex flex-col gap-15 items-start justify-start absolute -top-0 ring-0`}
@@ -61,9 +61,9 @@ const TeamCard = ({
           backdropFilter: "blur(5.9px)",
         }}
       >
-        <div className="flex flex-col gap-0 items-start justify-start self-stretch flex-1 relative ">
+        <div className="flex flex-col gap-0 items-start justify-start self-stretch flex-1 relative shrink ">
           <img
-            className={`rounded-full relative mb-[7px] object-top object-cover`}
+            className={`rounded-full relative mb-[7px] object-top object-cover shrink`}
             src={image}
             alt={name}
             style={{

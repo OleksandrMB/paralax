@@ -153,9 +153,13 @@ type CardData = {
 //   );
 // };
 
-function QualityCard({ icon, title, paragraph, cardNumber }: any) {
+function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
   return (
-    <div className="group flex flex-col items-center w-[271px] h-[364px] cursor-pointer relative rounded ">
+    <div
+      className={`group flex flex-col items-center ${
+        large ? "w-[371px]" : "w-[271px]"
+      } ${large ? "h-[363px]" : "h-[364px]"} cursor-pointer relative rounded `}
+    >
       <div className="flex flex-col gap-[9px] items-center justify-start w-[131.81px] h-[129.08px] relative">
         <div className="absolute">
           <div
@@ -175,17 +179,25 @@ function QualityCard({ icon, title, paragraph, cardNumber }: any) {
           backdropFilter: "blur(13.64px)",
         }}
       >
-        <div
-          className="text-[#ffffff] mt-[20px] mb-[22px]"
-          style={{ font: "800 23px/140% 'Epilogue', sans-serif" }}
-        >
-          {cardNumber}
-        </div>
+        {large ? null : (
+          <div
+            className="text-[#ffffff] mt-[20px] mb-[22px]"
+            style={{ font: "800 23px/140% 'Epilogue', sans-serif" }}
+          >
+            {cardNumber}
+          </div>
+        )}
 
-        <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center mb-[20px]">
-          <img src={icon} alt="Quality Icon" width="67" height="66"></img>
-        </div>
-        <div className="flex flex-col gap-[9px] items-center justify-center">
+        {large ? null : (
+          <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center mb-[20px]">
+            <img src={icon} alt="Quality Icon" width="67" height="66"></img>
+          </div>
+        )}
+        <div
+          className={`flex flex-col gap-[9px] items-center justify-center ${
+            large ? `mt-[70px]` : ""
+          }`}
+        >
           <div
             className="text-[#ffffff] text-center flex-1"
             style={{
@@ -287,15 +299,27 @@ const QualityCards = ({ large }: { large?: boolean }) => {
             })}
           </Swiper>
         </div> */}
-      <div className="min-h-scree flex justify-center items-center">
-        <Swiper spaceBetween={30} slidesPerView="auto">
-          {CARD_DATA.small.map((data) => (
-            <SwiperSlide key={data.cardNumber} style={{ width: "271px" }}>
-              <QualityCard {...data} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      {large ? (
+        <div className="flex justify-center items-center">
+          <Swiper spaceBetween={30} slidesPerView="auto">
+            {CARD_DATA.large.map((data) => (
+              <SwiperSlide style={{ width: "371px" }}>
+                <QualityCard large={large} {...data} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center">
+          <Swiper spaceBetween={30} slidesPerView="auto">
+            {CARD_DATA.small.map((data) => (
+              <SwiperSlide key={data.cardNumber} style={{ width: "271px" }}>
+                <QualityCard {...data} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </>
   );
 };

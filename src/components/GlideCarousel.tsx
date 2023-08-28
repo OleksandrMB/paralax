@@ -38,8 +38,8 @@ export default function SwiperCoverflow() {
       initialSlide={1}
       loop={true}
       centeredSlides
-      style={{ height: "458px", width: "100%" }}
       grabCursor={true}
+      className="h-[224px] md:h-[458px] w-full"
     >
       <SwiperSlide>
         <Slide />
