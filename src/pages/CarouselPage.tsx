@@ -13,7 +13,6 @@ const CarouselPage = () => {
         </div>
       </div>
       <div className="flex justify-center mt-[580px]">
-        {/* add margin top 30px */}
         <GradientButton>Get in touch</GradientButton>
       </div>
     </div>

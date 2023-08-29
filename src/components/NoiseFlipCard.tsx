@@ -14,7 +14,7 @@ const NoiseFlipCard = ({
       className={`group card h-[369px]"
       } relative flex justify-center items-center bg-[rgba(202, 223, 255, 0.2) border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer rounded-[20px]`}
     >
-      <div className="z-20">
+      <div className="z-20 h-[400px] lg:h-[369px] pt-[130px] px-[70px]">
         <h1 className="group-hover:invisible text-[#222] text-[29px] services-1430:text-[34px] bold text-center">
           {title}
         </h1>
@@ -33,7 +33,7 @@ const NoiseFlipCard = ({
     </div>
   ) : (
     <div
-      className={`group card h-[173px] services-678:h-[240px] services-870:h-[280px] relative flex justify-center items-center bg-[rgba(202, 223, 255, 0.2) border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer rounded-[20px]`}
+      className={`group card h-full relative flex justify-center items-center bg-[rgba(202, 223, 255, 0.2) border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer rounded-[20px]`}
     >
       <div className="z-20">
         <h1 className="group-hover:invisible text-[#222] text-[15px] services-678:text-[29px] services-1430:text-[34px] bold text-center">

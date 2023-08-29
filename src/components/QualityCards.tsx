@@ -161,7 +161,7 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
       } ${large ? "h-[363px]" : "h-[364px]"} cursor-pointer relative rounded `}
     >
       <div className="flex flex-col gap-[9px] items-center justify-start w-[131.81px] h-[129.08px] relative">
-        <div className="absolute">
+        <div className="absolute group-hover:top-[16px]">
           <div
             className="rounded-tl-[13.64px] rounded-tr-[13.64px] rounded-br-[85.45px] rounded-bl-[85.45px] pt-[63.63px] pr-[22.73px]  pl-[22.73px] flex flex-col gap-[9.09px] items-center justify-center w-[131px] h-[90px]"
             style={{

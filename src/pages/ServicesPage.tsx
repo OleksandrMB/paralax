@@ -41,11 +41,11 @@ const ServicesPage = () => {
         Services
       </h1>
       <div
-        className="flex flex-col justify-between"
+        className="flex flex-col justify-between gap-[10px] md:gap-[0]"
         style={{ height: "calc(100% - 160px)" }}
       >
         {/* Grid of cards */}
-        <div className="mx-[15px] md:mx-[60px] grid grid-rows-2 services-870:grid-cols-3 grid-cols-2 gap-x-[15px] gap-y-[15px] mb-auto">
+        <div className="mx-[15px] md:mx-[60px] h-full grid services-870:grid-rows-2 services-870:grid-cols-3 grid-cols-2 gap-x-[15px] gap-y-[15px]">
           {NoiseCardsData.map((data) => {
             return (
               <NoiseFlipCard
@@ -59,8 +59,8 @@ const ServicesPage = () => {
         </div>
 
         {/* Gradient button */}
-        <div className="flex justify-center mt-auto mb-auto">
-          <GradientButton full={true}>Get in touch</GradientButton>
+        <div className="flex justify-center mb-[20px] mt-[20px]">
+          <GradientButton>Get in touch</GradientButton>
         </div>
       </div>
     </div>
