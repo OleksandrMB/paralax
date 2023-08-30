@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   };
 
   return (
-    <div className="lg:ml-[25px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch">
+    <div className="ml-[15px] md:ml-[30px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch">
       <img
         src={theme === "dark" ? "/icons/whiteLogo.png" : "/icons/blackLogo.png"}
         alt="gart.tech logo"

@@ -22,6 +22,8 @@ module.exports = {
         "services-870": "870px",
         "services-678": "678px",
         "quality-573": "573px",
+        "kick-1485": "1485px",
+        "kick-1024": "1024px",
       },
       borderRadius: {
         36: "36px",

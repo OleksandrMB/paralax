@@ -31,19 +31,24 @@ const NoiseCardsData = [
 
 const KickOffPage = () => {
   return (
-    <div className="ml-[61px] mr-[61px] flex flex-col h-[100% - 109px]">
+    <div
+      className=" mr-[14px] lg:mr-[61px] flex flex-col  justify-around lg:justify-start"
+      style={{
+        height: "calc(100% - 85px)",
+      }}
+    >
       <div className="text-[#222] flex flex-col">
-        <h1 className="font-helvetica-font text-[45px] leading-[140%] font-bold">
+        <h1 className="ml-[15px] lg:ml-[60px] font-helvetica-font text-[45px] leading-[140%] font-bold">
           Kick-Off
         </h1>
-        <p className="font-helvetica-font text-[22px] font-normal leading-[150%]">
+        <p className="ml-[15px] lg:ml-[60px] hidden lg:block font-helvetica-font text-[22px] font-normal leading-[150%]">
           Kick-off as an efficient way to start cooperating with Gart is a
           certain win-win. It is a great opportunity for you to get acquainted
           with us and for us to find the best way to facilitate your big ideas
           and business.
         </p>
       </div>
-      <div className="grid grid-cols-6 gap-x-[20px] gap-y-[40px] mt-[45px]">
+      <div className="ml-[60px] hidden lg:grid grid-cols-6 gap-y-[25px] gap-x-[50px] kick-1485:gap-y-[40px] mt-[40px]">
         {NoiseCardsData.map((data, index) => {
           const isLastTwo = index >= NoiseCardsData.length - 2;
           return (
@@ -56,7 +61,39 @@ const KickOffPage = () => {
           );
         })}
       </div>
-      <div className="flex justify-center mt-[20px]">
+      <div className="flex lg:hidden justify-center">
+        <GradientButton bg={false}>Read More</GradientButton>
+      </div>
+      <div className="ml-[15px] flex lg:hidden flex-col gap-[20px]">
+        <div className="grid grid-cols-2 gap-x-[18px] gap-y-[20px] ">
+          <NoiseCards
+            key={NoiseCardsData[0].title}
+            title={NoiseCardsData[0].title}
+            paragraph={NoiseCardsData[0].paragraph}
+          />
+          <NoiseCards
+            key={NoiseCardsData[1].title}
+            title={NoiseCardsData[1].title}
+            paragraph={NoiseCardsData[1].paragraph}
+          />
+          <NoiseCards
+            key={NoiseCardsData[2].title}
+            title={NoiseCardsData[2].title}
+            paragraph={NoiseCardsData[2].paragraph}
+          />
+          <NoiseCards
+            key={NoiseCardsData[3].title}
+            title={NoiseCardsData[3].title}
+            paragraph={NoiseCardsData[3].paragraph}
+          />
+        </div>
+        <NoiseCards
+          key={NoiseCardsData[4].title}
+          title={NoiseCardsData[4].title}
+          paragraph={NoiseCardsData[4].paragraph}
+        />
+      </div>
+      <div className="flex justify-center lg:mt-[30px]">
         {/* add margin top 30px */}
         <GradientButton>Get in touch</GradientButton>
       </div>

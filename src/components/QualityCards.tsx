@@ -157,8 +157,10 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
   return (
     <div
       className={`group flex flex-col items-center ${
-        large ? "w-[371px]" : "w-[271px]"
-      } ${large ? "h-[363px]" : "h-[364px]"} cursor-pointer relative rounded `}
+        large ? "w-[371px]" : "w-[230px] md:w-[271px]"
+      } ${
+        large ? "h-[363px]" : "h-[300px] md:h-[364px]"
+      } cursor-pointer relative rounded`}
     >
       <div className="flex flex-col gap-[9px] items-center justify-start w-[131.81px] h-[129.08px] relative">
         <div className="absolute group-hover:top-[16px]">
@@ -252,7 +254,7 @@ const SwiperQualityCards = ({ large }: { large?: boolean }) => {
   );
 };
 
-const QualityCards = ({ large }: { large?: boolean }) => {
+const QualityCards = ({ large = false }: { large?: boolean }) => {
   return (
     <>
       {/* <div
@@ -310,15 +312,49 @@ const QualityCards = ({ large }: { large?: boolean }) => {
           </Swiper>
         </div>
       ) : (
-        <div className="flex justify-center items-center">
-          <Swiper spaceBetween={30} slidesPerView="auto">
-            {CARD_DATA.small.map((data) => (
-              <SwiperSlide key={data.cardNumber} style={{ width: "271px" }}>
-                <QualityCard {...data} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <>
+          <div className=" hidden md:flex justify-center items-center">
+            <Swiper spaceBetween={30} slidesPerView="auto">
+              {CARD_DATA.small.map((data) => (
+                <SwiperSlide key={data.cardNumber} style={{ width: "271px" }}>
+                  <QualityCard {...data} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div
+            className="left-[-55px] absolute flex md:hidden justify-center items-center "
+            style={{
+              width: "110vw",
+            }}
+          >
+            <Swiper
+              navigation
+              pagination={{ clickable: true }}
+              effect="coverflow"
+              coverflowEffect={{
+                rotate: 50,
+                stretch: -10,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
+              }}
+              slidesPerView={2}
+              initialSlide={1}
+              centeredSlides={true}
+              loop={true}
+              grabCursor={true}
+              className="h-[300px] w-full"
+              spaceBetween={20}
+            >
+              {CARD_DATA.small.map((data) => (
+                <SwiperSlide key={data.cardNumber}>
+                  <QualityCard {...data} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </>
       )}
     </>
   );
