@@ -157,10 +157,10 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
   return (
     <div
       className={`group flex flex-col items-center ${
-        large ? "w-[371px]" : "w-[230px] md:w-[271px]"
+        large ? "w-[313px] md:w-[371px]" : "w-[230px] md:w-[271px]"
       } ${
-        large ? "h-[363px]" : "h-[300px] md:h-[364px]"
-      } cursor-pointer relative rounded`}
+        large ? "h-[313px] md:h-[363px]" : "h-[320px] md:h-[364px]"
+      } cursor-pointer relative rounded `}
     >
       <div className="flex flex-col gap-[9px] items-center justify-start w-[131.81px] h-[129.08px] relative">
         <div className="absolute group-hover:top-[16px]">
@@ -183,7 +183,7 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
       >
         {large ? null : (
           <div
-            className="text-[#ffffff] mt-[20px] mb-[22px]"
+            className="text-[#ffffff] mt-[16px] md:mt-[20px] mb-[18px] md:mb-[22px]"
             style={{ font: "800 23px/140% 'Epilogue', sans-serif" }}
           >
             {cardNumber}
@@ -191,7 +191,7 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
         )}
 
         {large ? null : (
-          <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center mb-[20px]">
+          <div className="p-[4.55px] flex flex-row gap-0.5 items-center justify-center mb-[14px] md:mb-[20px]">
             <img src={icon} alt="Quality Icon" width="67" height="66"></img>
           </div>
         )}
@@ -210,10 +210,9 @@ function QualityCard({ icon, title, paragraph, cardNumber, large }: any) {
             {title}
           </div>
           <div
-            className="text-[#ffffff] text-center flex-1 pl-[22px] pr-[22px]"
+            className="text-[#ffffff] text-center flex-1 pl-[22px] pr-[22px] text-[12px] md:text-[14px]"
             style={{
-              font: "400 14px/140% 'Epilogue', sans-serif",
-              height: "120px",
+              font: "400 /140% 'Epilogue', sans-serif",
             }}
           >
             {paragraph}
@@ -302,15 +301,35 @@ const QualityCards = ({ large = false }: { large?: boolean }) => {
           </Swiper>
         </div> */}
       {large ? (
-        <div className="flex justify-center items-center">
-          <Swiper spaceBetween={30} slidesPerView="auto">
-            {CARD_DATA.large.map((data) => (
-              <SwiperSlide style={{ width: "371px" }}>
-                <QualityCard large={large} {...data} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <>
+          <div className="hidden md:flex justify-center items-center ">
+            <Swiper slidesPerView="auto" spaceBetween={30}>
+              {CARD_DATA.large.map((data) => (
+                <SwiperSlide
+                  style={{
+                    width: "371px",
+                  }}
+                >
+                  <QualityCard large={large} {...data} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div
+            className="absolute flex md:hidden justify-center items-center "
+            style={{
+              width: "calc(100vw)",
+            }}
+          >
+            <Swiper slidesPerView={2} spaceBetween={280}>
+              {CARD_DATA.large.map((data) => (
+                <SwiperSlide className="w-[371px]">
+                  <QualityCard large={large} {...data} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </>
       ) : (
         <>
           <div className=" hidden md:flex justify-center items-center">
@@ -344,7 +363,7 @@ const QualityCards = ({ large = false }: { large?: boolean }) => {
               centeredSlides={true}
               loop={true}
               grabCursor={true}
-              className="h-[300px] w-full"
+              className="h-[320px] w-full"
               spaceBetween={20}
             >
               {CARD_DATA.small.map((data) => (

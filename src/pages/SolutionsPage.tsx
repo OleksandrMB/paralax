@@ -24,24 +24,24 @@ const NoiseCardsData = [
 
 const SolutionsPage = () => {
   return (
-    <div className="ml-[61px] mr-[61px] flex flex-col h-full">
+    <div className="flex flex-col h-full">
       <img
         className="absolute hidden lg:block right-[70px] -top-[-90px]  h-[291px] w-[257px] z-10"
         src="/icons/robot.png"
         alt="robot img"
       />
-      <div className="text-[#222] flex flex-col z-20 mt-[15px]">
-        <h1 className="font-epilogue-font text-[45px] leading-[140%] font-bold">
+      <div className="ml-[15px] md:ml-[60px] text-[#222] flex flex-col z-20 mt-[15px]">
+        <h1 className="font-epilogue-font text-[24px] md:text-[45px] leading-[140%] font-bold">
           Engineering Solutions
         </h1>
-        <p className="font-epilogue-font md:text-[22px] lg:text-[24px] font-normal leading-[150%] lg:pr-[250px] mt-[28px]">
+        <p className="font-epilogue-font text-[16px] md:text-[22px] lg:text-[24px] font-normal leading-[150%] lg:pr-[250px] mr-[15px] md:mt-[28px]">
           Some systems we designed and built to generate value for businesses on
           the back stage. They optimize lead generation, market making or client
           research within the applications our clients already use. Learn below
           what those systems accomplish:
         </p>
       </div>
-      <div className="hidden lg:grid grid-cols-3 gap-x-[20px] h-[369px] gap-y-[50px] mt-[28px]">
+      <div className="ml-[15px] md:ml-[60px] hidden lg:grid grid-cols-3 gap-x-[20px] h-[369px] gap-y-[50px] mt-[15px] md:mt-[28px]">
         {NoiseCardsData.map((data) => {
           return (
             <NoiseFlipCard
@@ -53,14 +53,14 @@ const SolutionsPage = () => {
           );
         })}
       </div>
-      <div className="flex lg:hidden justify-center items-center">
+      <div className="ml-[15px] md:ml-[60px] flex lg:hidden justify-center items-center">
         <Swiper spaceBetween={30} slidesPerView="auto">
           {NoiseCardsData.map((data) => {
             return (
               <SwiperSlide
                 key={data.title}
                 style={{
-                  width: "400px",
+                  width: "313px",
                 }}
               >
                 <NoiseFlipCard

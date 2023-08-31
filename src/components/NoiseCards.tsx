@@ -11,9 +11,9 @@ const NoiseCards = ({
   // add blur add background fix button update the positions of circles
   return (
     <div
-      className={`card h-full relative border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer ${colSpan} pl-[20px] rounded-[16px] pr-[20px] pt-[15px] lg:pt-[30px] pb-[20px] h-[217px] backdrop:blur-[11px]`}
+      className={`card h-[313px] md:h-full relative border-[2px] border-solid border-gray-[#E2E2E2] cursor-pointer ${colSpan} pl-[20px] rounded-[16px] pr-[20px] pt-[15px] lg:pt-[30px] pb-[20px] h-[217px] backdrop:blur-[11px]`}
     >
-      <h1 className="text-[#222] font-epilogue-font text-[20px] lg:text-[23px] pb-[20px] bold text-center">
+      <h1 className="text-[#222] font-bold font-epilogue-font text-[23px] md:text-[20px] lg:text-[23px] pb-[20px] text-center">
         {title}
       </h1>
       <p className="text-[16px]">{paragraph}</p>

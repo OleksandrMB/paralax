@@ -1,5 +1,6 @@
 import GradientButton from "../components/GradientButton";
 import NoiseCards from "../components/NoiseCards";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const NoiseCardsData = [
   {
@@ -37,11 +38,11 @@ const KickOffPage = () => {
         height: "calc(100% - 85px)",
       }}
     >
-      <div className="text-[#222] flex flex-col">
-        <h1 className="ml-[15px] lg:ml-[60px] font-helvetica-font text-[45px] leading-[140%] font-bold">
+      <div className="text-[#222] flex gap-[30px] lg:gap-[0] flex-col">
+        <h1 className="ml-[15px] lg:ml-[60px] font-helvetica-font text-[24px] md:text-[32px] lg:text-[45px] leading-[140%] font-bold">
           Kick-Off
         </h1>
-        <p className="ml-[15px] lg:ml-[60px] hidden lg:block font-helvetica-font text-[22px] font-normal leading-[150%]">
+        <p className="ml-[15px] lg:ml-[60px] block md:hidden lg:block font-helvetica-font text-[16px] lg:text-[22px] font-normal leading-[150%]">
           Kick-off as an efficient way to start cooperating with Gart is a
           certain win-win. It is a great opportunity for you to get acquainted
           with us and for us to find the best way to facilitate your big ideas
@@ -61,10 +62,10 @@ const KickOffPage = () => {
           );
         })}
       </div>
-      <div className="flex lg:hidden justify-center">
+      <div className="hidden md:flex lg:hidden justify-center">
         <GradientButton bg={false}>Read More</GradientButton>
       </div>
-      <div className="ml-[15px] flex lg:hidden flex-col gap-[20px]">
+      <div className="ml-[15px] hidden md:flex lg:hidden flex-col gap-[20px]">
         <div className="grid grid-cols-2 gap-x-[18px] gap-y-[20px] ">
           <NoiseCards
             key={NoiseCardsData[0].title}
@@ -92,6 +93,21 @@ const KickOffPage = () => {
           title={NoiseCardsData[4].title}
           paragraph={NoiseCardsData[4].paragraph}
         />
+      </div>
+      <div className="ml-[15px] md:hidden">
+        <Swiper spaceBetween={30} slidesPerView="auto">
+          {NoiseCardsData.map((data, index) => {
+            return (
+              <SwiperSlide key={index} style={{ width: "313px" }}>
+                <NoiseCards
+                  key={index}
+                  title={data.title}
+                  paragraph={data.paragraph}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
       <div className="flex justify-center lg:mt-[30px]">
         {/* add margin top 30px */}

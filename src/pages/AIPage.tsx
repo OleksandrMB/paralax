@@ -8,7 +8,7 @@ const AIPage = () => {
         <h1 className="font-epilogue-font text-[24px] md:text-[32px] lg:text-[45px] leading-[140%] font-bold">
           AI Employees
         </h1>
-        <p className="font-helvetica-font text-[16px] md:text-[22px] font-normal leading-[150%]">
+        <p className="font-helvetica-font text-[16px] hidden md:block md:text-[22px] font-normal leading-[150%]">
           We harness LLMs and generative algorithms to turbocharge your team.
           These nimble machines, once tuned, not only tackle tasks beyond human
           reach but also bolster your top talent to deliver team-level output.
@@ -19,10 +19,13 @@ const AIPage = () => {
           application cases here.
         </p>
       </div>
+      <div className="flex md:hidden justify-center mt-[30px] mb-[80px]">
+        <GradientButton bg={false}>Read more</GradientButton>
+      </div>
       <div className="ml-[15px] md:ml-[60px]">
         <QualityCards large={true} />
       </div>
-      <div className="flex justify-center mt-[15px]">
+      <div className="flex justify-center mt-[451px] md:mt-[15px]">
         <GradientButton>Get in touch</GradientButton>
       </div>
     </div>

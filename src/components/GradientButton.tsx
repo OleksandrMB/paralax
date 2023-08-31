@@ -27,7 +27,7 @@ const GradientButton = ({ children, bg = true }: GradientButtonProps) => {
   return (
     <div
       className={`group relative h-[59px] w-full lg:w-[212px]
-      } ml-[30px] mr-[30px] lg:ml-[0] lg:mr-[0]  z-50`}
+      } ml-[15px] mr-[15px] md:ml-[30px] md:mr-[30px] lg:ml-[0] lg:mr-[0]  z-50`}
     >
       {/* fix gradient */}
       <button
