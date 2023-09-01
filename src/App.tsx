@@ -11,6 +11,8 @@ import SolutionsPage from "./pages/SolutionsPage";
 import TrustPage from "./pages/TrustPage";
 import CarouselPage from "./pages/CarouselPage";
 import CardPage from "./components/CardPage";
+import CalendarPage from "./pages/CalendarPage";
+import CasesMainPage from "./pages/casesPages/CasesMainPage";
 
 enum Theme {
   Light = "light",
@@ -24,21 +26,33 @@ type ThemeType = {
   };
 };
 
-const themes: ThemeType = {
-  0: { theme: Theme.Light, Component: <HomePage /> },
-  1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
-  2: { theme: Theme.Light, Component: <KickOffPage /> },
-  3: { theme: Theme.Light, Component: <ServicesPage /> },
-  4: { theme: Theme.Light, Component: <CarouselPage /> },
-  5: { theme: Theme.Dark, Component: <AIPage /> },
-  6: { theme: Theme.Light, Component: <SolutionsPage /> },
-  7: { theme: Theme.Light, Component: <TrustPage /> },
-};
-
 function App() {
   const [currentPage, setcurrentPage] = useState(0);
+  const [currentCase, setcurrentCase] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
-  const numberOfPages = 8;
+  const numberOfPages = currentCase === "HomeCase" ? 8 : 4;
+  const cases: ThemeType =
+    currentCase === "HomeCase"
+      ? {
+          0: { theme: Theme.Light, Component: <HomePage /> },
+          1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
+          2: { theme: Theme.Light, Component: <KickOffPage /> },
+          3: { theme: Theme.Light, Component: <ServicesPage /> },
+          4: {
+            theme: Theme.Light,
+            Component: <CarouselPage setcurrentCase={setcurrentCase} />,
+          },
+          5: { theme: Theme.Dark, Component: <AIPage /> },
+          6: { theme: Theme.Light, Component: <SolutionsPage /> },
+          7: { theme: Theme.Light, Component: <TrustPage /> },
+          8: { theme: Theme.Light, Component: <CalendarPage /> },
+        }
+      : {
+          0: { theme: Theme.Light, Component: <CasesMainPage /> },
+          1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
+          2: { theme: Theme.Light, Component: <KickOffPage /> },
+          3: { theme: Theme.Light, Component: <ServicesPage /> },
+        };
 
   const transitions = useTransition(currentPage, {
     from: { opacity: 0 },
@@ -67,7 +81,7 @@ function App() {
   }, [isAnimating]);
 
   const determineTheme = () => {
-    return themes[currentPage]?.theme || Theme.Light;
+    return cases[currentPage]?.theme || Theme.Light;
   };
 
   return (
@@ -78,6 +92,7 @@ function App() {
         theme={determineTheme()}
         currentPage={currentPage}
         setPageIndex={setcurrentPage}
+        currentCase={currentCase}
       >
         {transitions((style, item) => (
           <animated.div
@@ -94,7 +109,7 @@ function App() {
               theme={determineTheme()}
               changePage={setcurrentPage}
             />
-            {themes[item]?.Component || <HomePage />}
+            {cases[item]?.Component || <HomePage />}
           </animated.div>
         ))}
       </CardPage>

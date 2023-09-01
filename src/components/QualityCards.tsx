@@ -321,7 +321,7 @@ const QualityCards = ({ large = false }: { large?: boolean }) => {
               width: "calc(100vw)",
             }}
           >
-            <Swiper slidesPerView={2} spaceBetween={280}>
+            <Swiper slidesPerView={2} spaceBetween={280} loop={true}>
               {CARD_DATA.large.map((data) => (
                 <SwiperSlide className="w-[371px]">
                   <QualityCard large={large} {...data} />

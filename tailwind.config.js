@@ -24,6 +24,9 @@ module.exports = {
         "quality-573": "573px",
         "kick-1485": "1485px",
         "kick-1024": "1024px",
+        "CasesMainPage-1260": "1260px",
+        "CasesMainPage-1480": "1480px",
+        "CasesMainPage-670": "670px",
       },
       borderRadius: {
         36: "36px",

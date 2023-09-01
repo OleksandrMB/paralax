@@ -33,7 +33,7 @@ const NoiseCardsData = [
 const KickOffPage = () => {
   return (
     <div
-      className=" mr-[14px] lg:mr-[61px] flex flex-col  justify-around lg:justify-start"
+      className=" flex flex-col  justify-around lg:justify-start"
       style={{
         height: "calc(100% - 85px)",
       }}
@@ -42,14 +42,14 @@ const KickOffPage = () => {
         <h1 className="ml-[15px] lg:ml-[60px] font-helvetica-font text-[24px] md:text-[32px] lg:text-[45px] leading-[140%] font-bold">
           Kick-Off
         </h1>
-        <p className="ml-[15px] lg:ml-[60px] block md:hidden lg:block font-helvetica-font text-[16px] lg:text-[22px] font-normal leading-[150%]">
+        <p className="ml-[15px] lg:ml-[60px] block md:hidden lg:block font-helvetica-font text-[16px] lg:text-[22px] font-normal leading-[150%] mr-[14px] lg:mr-[61px]">
           Kick-off as an efficient way to start cooperating with Gart is a
           certain win-win. It is a great opportunity for you to get acquainted
           with us and for us to find the best way to facilitate your big ideas
           and business.
         </p>
       </div>
-      <div className="ml-[60px] hidden lg:grid grid-cols-6 gap-y-[25px] gap-x-[50px] kick-1485:gap-y-[40px] mt-[40px]">
+      <div className="ml-[60px] hidden lg:grid grid-cols-6 gap-y-[25px] gap-x-[50px] kick-1485:gap-y-[40px] mt-[40px] mr-[14px] lg:mr-[61px]">
         {NoiseCardsData.map((data, index) => {
           const isLastTwo = index >= NoiseCardsData.length - 2;
           return (
@@ -65,7 +65,7 @@ const KickOffPage = () => {
       <div className="hidden md:flex lg:hidden justify-center">
         <GradientButton bg={false}>Read More</GradientButton>
       </div>
-      <div className="ml-[15px] hidden md:flex lg:hidden flex-col gap-[20px]">
+      <div className="ml-[15px] hidden md:flex lg:hidden flex-col gap-[20px] mr-[14px] lg:mr-[61px]">
         <div className="grid grid-cols-2 gap-x-[18px] gap-y-[20px] ">
           <NoiseCards
             key={NoiseCardsData[0].title}
@@ -94,7 +94,7 @@ const KickOffPage = () => {
           paragraph={NoiseCardsData[4].paragraph}
         />
       </div>
-      <div className="ml-[15px] md:hidden">
+      <div className="ml-[15px] md:hidden ">
         <Swiper spaceBetween={30} slidesPerView="auto">
           {NoiseCardsData.map((data, index) => {
             return (

@@ -17,19 +17,14 @@ const TrustPage = () => {
       <h1 className="font-epilogue-font text-[24px] md:text-[32px] lg:text-[48px] leading-[140%] font-bold ml-[15px] md:ml-[35px]">
         They trust us
       </h1>
-      <div
-        className="flex flex-col justify-between md:justify-start"
-        style={{
-          height: "calc(100% - 130px)",
-        }}
-      >
-        <div className="w-full flex justify-center">
-          <div className="grid grid-cols-2 grid-rows-4 gap-[20px] md:grid-cols-4 md:grid-rows-2 md:gap-[30px] mt-[50px] md:mt-[100px] b-[80px]">
+      <div className="flex flex-col justify-between md:justify-center h-[77vh] lg:h-[64vh]">
+        <div className="w-full flex justify-center px-[15px] md:px-[35px] lg:px-[60px]">
+          <div className="grid grid-cols-2 grid-rows-4 gap-[20px] md:grid-cols-4 md:grid-rows-2 md:gap-[30px] mt-[2vh] md:mt-[0] b-[80px]">
             {logos.map((url) => {
               return (
                 <div className="bg-[#F7F8FA] rounded-[10px]">
                   <img
-                    className="h-[65px] w-[65px] m-[20px] md:h-[100px] md:w-[100px] md:m-[30px]"
+                    className="h-[8vh] w-[8vh] m-[20px] md:m-[30px]"
                     src={url.logo}
                   />
                 </div>

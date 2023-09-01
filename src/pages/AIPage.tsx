@@ -4,7 +4,7 @@ import QualityCards from "../components/QualityCards";
 const AIPage = () => {
   return (
     <div>
-      <div className="text-white flex flex-col gap-[27px] mt-[25px] lg:mt-[40px] mb-[30px] ml-[15px] md:ml-[60px]">
+      <div className="text-white flex flex-col gap-[27px] mt-[25px] lg:mt-[40px] mb-[30px] ml-[15px] md:ml-[35px] lg:ml-[60px]">
         <h1 className="font-epilogue-font text-[24px] md:text-[32px] lg:text-[45px] leading-[140%] font-bold">
           AI Employees
         </h1>
@@ -22,7 +22,7 @@ const AIPage = () => {
       <div className="flex md:hidden justify-center mt-[30px] mb-[80px]">
         <GradientButton bg={false}>Read more</GradientButton>
       </div>
-      <div className="ml-[15px] md:ml-[60px]">
+      <div className="ml-[15px] md:ml-[35px] lg:ml-[60px]">
         <QualityCards large={true} />
       </div>
       <div className="flex justify-center mt-[451px] md:mt-[15px]">

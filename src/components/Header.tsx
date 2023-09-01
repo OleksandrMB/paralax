@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
 
       switch (btnName) {
         case "Services":
-          pageIndex = 0;
+          pageIndex = 3;
           break;
         case "Journey":
           pageIndex = 1;
@@ -37,10 +37,14 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
   };
 
   return (
-    <div className="ml-[15px] md:ml-[30px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch">
+    <div className="pl-[15px] md:pl-[30px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch border-b border-[#E2E2E2] lg:border-none">
       <img
         src={theme === "dark" ? "/icons/whiteLogo.png" : "/icons/blackLogo.png"}
         alt="gart.tech logo"
+        onClick={() => {
+          changePage(0);
+        }}
+        className=" cursor-pointer h-[49px] lg:h-[67px]"
       />
       <div
         style={{

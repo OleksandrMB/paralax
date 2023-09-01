@@ -8,6 +8,7 @@ type CardPageType = {
 interface CardPageProps extends PropsWithChildren<CardPageType> {
   currentPage: number;
   setPageIndex: (pageIndex: number) => void;
+  currentCase: string;
 }
 
 const CardPage: React.FC<CardPageProps> = ({
@@ -15,6 +16,7 @@ const CardPage: React.FC<CardPageProps> = ({
   theme = "light",
   currentPage,
   setPageIndex,
+  currentCase,
 }: CardPageProps) => {
   return (
     <div
@@ -33,6 +35,7 @@ const CardPage: React.FC<CardPageProps> = ({
             <PageButtons
               currentPage={currentPage}
               setPageIndex={setPageIndex}
+              currentCase={currentCase}
             />
           </div>
         </div>

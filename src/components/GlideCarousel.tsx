@@ -1,18 +1,31 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
 
-// // Import Swiper styles
 import "swiper/swiper.min.css";
 
 SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
+const SLIDES_DATA = [
+  {
+    case: "HealthcarePlatform",
+    img: "/imgs/wowImg.png",
+    title: "Healthcare platform",
+  },
 
-const Slide = () => {
+  ,
+  {
+    case: "Tornado",
+    img: "/imgs/Tornado.png",
+    title: "Tornado",
+  },
+];
+
+const Slide = (data: any) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-[7px] bg-white px-[30px] py-[47px] h-full">
+    <div className="flex flex-col justify-center items-center gap-[7px] bg-white px-[30px] py-[47px] w-full h-full">
       <img
-        className="h-full w-[508px] ml-[-10px]"
+        className="h-full w-[100vw] lg:w-[508px] ml-[-10px]"
         src="/imgs/wowImg.png"
-        alt="Healthcare platform img"
+        alt={" img"}
       />
       <span className="text-center text-[#222] text-[19px] font-bold font-epilogue-font leading-[140%]">
         Healthcare platform
@@ -21,7 +34,16 @@ const Slide = () => {
   );
 };
 
-export default function SwiperCoverflow() {
+type SwiperCoverflowProps = {
+  setcurrentCase: (caseName: string) => void;
+};
+
+const SwiperCoverflow: React.FC<SwiperCoverflowProps> = ({
+  setcurrentCase,
+}) => {
+  const handleClick = (data: any) => {
+    setcurrentCase(data.route);
+  };
   return (
     <Swiper
       navigation
@@ -39,17 +61,16 @@ export default function SwiperCoverflow() {
       loop={true}
       centeredSlides
       grabCursor={true}
-      className="h-[224px] md:h-[458px] w-full"
+      className="h-[25vh] lg:h-[500px] w-full"
     >
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
+      {SLIDES_DATA.map((data) => {
+        return (
+          <SwiperSlide>
+            <Slide data={data} />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
-}
+};
+export default SwiperCoverflow;

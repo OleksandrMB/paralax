@@ -116,6 +116,91 @@ const Figures = ({
             rightValue: "0px",
           };
       }
+    } else if (!isTablet && window.innerWidth < 768) {
+      // mobile positions
+      switch (page) {
+        case 0:
+          return {
+            topValue: "-10vh",
+            leftValue1: "-3vw",
+            bottomValue1: "35vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-2vh",
+            rightValue: "-1vw",
+          };
+        case 1:
+          return {
+            topValue: "79vh",
+            leftValue1: "-20vw",
+            bottomValue1: "-6vh",
+            leftValue2: "84vw",
+            bottomValue2: "75vh",
+            rightValue: "1vw",
+          };
+        case 2:
+          return {
+            topValue: "-8vh",
+            leftValue1: "-6vw",
+            bottomValue1: "32vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-1vh",
+            rightValue: "30vw",
+          };
+        case 3:
+          return {
+            topValue: "-4vh",
+            leftValue1: "-6vw",
+            bottomValue1: "29vh",
+            leftValue2: "-4vw",
+            bottomValue2: "7vh",
+            rightValue: "-2vw",
+          };
+        case 4:
+          return {
+            topValue: "-10vh",
+            leftValue1: "10vw",
+            bottomValue1: "32vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-3vh",
+            rightValue: "55vw",
+          };
+        case 5:
+          return {
+            topValue: "79vh",
+            leftValue1: "-20vw",
+            bottomValue1: "-6vh",
+            leftValue2: "84vw",
+            bottomValue2: "75vh",
+            rightValue: "1vw",
+          };
+        case 6:
+          return {
+            topValue: "-8vh",
+            leftValue1: "-6vw",
+            bottomValue1: "32vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-1vh",
+            rightValue: "30vw",
+          };
+        case 7:
+          return {
+            topValue: "-10vh",
+            leftValue1: "-3vw",
+            bottomValue1: "35vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-2vh",
+            rightValue: "-1vw",
+          };
+        default:
+          return {
+            topValue: "-10vh",
+            leftValue1: "-3vw",
+            bottomValue1: "35vh",
+            leftValue2: "-5vw",
+            bottomValue2: "-2vh",
+            rightValue: "-1vw",
+          };
+      }
     } else
       switch (page) {
         case 0:
@@ -227,13 +312,13 @@ const Figures = ({
     currentPage === 2 || currentPage === 5
       ? `${
           MdSizedColored
-            ? "md:w-[257px] md:h-[257px]"
-            : "md:w-[356px] md:h-[356px]"
+            ? "w-[206px] h-[206px] md:w-[257px] md:h-[257px]"
+            : "w-[245px] h-[245px] md:w-[356px] md:h-[356px]"
         } lg:w-[216px] lg:h-[216px]`
       : `${
           MdSizedColored
-            ? "md:w-[257px] md:h-[257px]"
-            : "md:w-[356px] md:h-[356px]"
+            ? "w-[206px] h-[206px] md:w-[257px] md:h-[257px]"
+            : "w-[245px] h-[245px] md:w-[356px] md:h-[356px]"
         } lg:w-[462px] lg:h-[462px]`;
 
   return (
@@ -259,7 +344,7 @@ const Figures = ({
         viewBox="0 0 238 238"
         fill="none"
         xmlns="http://www.w3.org/2000/animated.svg"
-        className={`absolute md:w-[180px] md:h-[180px] lg:w-[237px] lg:h-[237px]`}
+        className={`absolute w-[119px] h-[119px] md:w-[180px] md:h-[180px] lg:w-[237px] lg:h-[237px]`}
         style={{
           bottom: styles.bottomValue1,
           left: styles.leftValue2,
@@ -279,8 +364,8 @@ const Figures = ({
         xmlns="http://www.w3.org/2000/animated.svg"
         className={`absolute ${
           MdSizedColored
-            ? "md:w-[121px] md:h-[121px]"
-            : "md:w-[159px] md:h-[159px]"
+            ? "w-[34px] h-[34px] md:w-[121px] md:h-[121px]"
+            : "w-[74px] h-[74px] md:w-[159px] md:h-[159px]"
         }  lg:w-[237px] lg:h-[237px]`}
         style={{
           bottom: styles.bottomValue2,
