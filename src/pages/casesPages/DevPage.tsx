@@ -1,4 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
+import React from "react";
 
 type CaseInfo = {
   title: string;
@@ -14,19 +14,19 @@ const CASE_DATA: CasesData = {
   tornado: {
     title: "Tornado",
     paragraph:
-      "Our client's request was to create a customized NFT sales tool. It was quite a challenge to move through the discovery, coding, and testing all the way to the working product in a concise time frame. Here's what came out of our team’s efforts.",
+      "We have built the website using React and created  back-end architecture with Django, developed a specialized smart contract and integrated Metamask. ",
     img: "/imgs/Tornado.png",
   },
   mySun: {
     title: "MySun",
     paragraph:
-      "MySun is a cross-platform mobile application that gathers and estimates the user's Nature footprint level. It achieves this by implementing features such as questionnaires and movement tracking. With integrations with Apple Health and an AI engine, the MySun app optimizes user actions and data. Additionally, users have the ability to improve their results by participating in challenges and environmental events.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     img: "/imgs/mySun.png",
   },
   bachu: {
     title: "Bachu",
     paragraph:
-      "A web and mobile apps (IOS and Android) designed for reporting the movements of Russian military vehicles, weapons, troops, or saboteurs on Ukrainian territory. Any Ukrainian user who has spotted the enemy can transmit the exact location directly to the Security Service of Ukraine.",
+      "We have integrated an ML model developed for recognizing and counting military vehicles and Russian soldiers from each users' photos. We have also built a back-end architecture to centralize the data from apps and place the reports on a map.",
     img: "/imgs/bachu.png",
   },
   saveUA: {
@@ -38,13 +38,59 @@ const CASE_DATA: CasesData = {
   forpost: {
     title: "Forpost",
     paragraph:
-      "As the war in Ukraine intensifies, any unusual movement is a cause for alarm. With this app, you can check whether the vehicle is a security threat by photographing the license plate or simply entering the letters and digits you saw.",
+      "We securely synchronized the app’s database with the governmental one to receive updates about vehicles in real-time without disclosing owners’ personal info.",
     img: "/imgs/forpost.png",
   },
   interLegion: {
     title: "International Legion",
     paragraph:
-      "A website and chatbot designed for the non-citizens willing to volunteer for military service in Ukraine. Our solution assists volunteers to join the Armed Forces of Ukraine with all the logistical help to secure the necessary paperwork. ",
+      "The biggest challenge was to build an operation and communication process between our team of IT volunteers (front- and back-end developers, UI/UX designer, and DevOps), the government, and the call center in the first three weeks of the war.",
+    img: "/imgs/interLegion.png",
+  },
+};
+
+type StackImg = { img: string };
+
+type StackData = {
+  [key: string]: StackImg[] | CaseInfo | undefined;
+};
+
+const stack: StackData = {
+  tornado: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
+  mySun: {
+    title: "MySun",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    img: "/imgs/mySun.png",
+  },
+  bachu: {
+    title: "Bachu",
+    paragraph:
+      "We have integrated an ML model developed for recognizing and counting military vehicles and Russian soldiers from each users' photos. We have also built a back-end architecture to centralize the data from apps and place the reports on a map.",
+    img: "/imgs/bachu.png",
+  },
+  saveUA: {
+    title: "SaveUA",
+    paragraph:
+      "Numuw is a healthcare platform for performing screening and providing treatment to pediatric patients by licensed therapists. Parents can book sessions, attend video consultations and access medical history within this app.",
+    img: "/imgs/saveUA.png",
+  },
+  forpost: {
+    title: "Forpost",
+    paragraph:
+      "We securely synchronized the app’s database with the governmental one to receive updates about vehicles in real-time without disclosing owners’ personal info.",
+    img: "/imgs/forpost.png",
+  },
+  interLegion: {
+    title: "International Legion",
+    paragraph:
+      "The biggest challenge was to build an operation and communication process between our team of IT volunteers (front- and back-end developers, UI/UX designer, and DevOps), the government, and the call center in the first three weeks of the war.",
     img: "/imgs/interLegion.png",
   },
 };
@@ -53,16 +99,17 @@ type CasesType = {
   currentCase: string;
 };
 
-const CasesMainPage: React.FC<CasesType> = ({ currentCase }) => {
+const DevPage: React.FC<CasesType> = ({ currentCase }) => {
   const caseInfo = CASE_DATA[currentCase];
+  const caseStack = stack[currentCase];
   if (!caseInfo) {
     return <div>Case not found</div>;
   }
   return (
-    <div className="flex md:flex-col lg:flex-row md:items-center lg:justify-between CasesMainPage-1480:justify-center lg:mr-[80px] mt-[10px] sm:mt-[100px] md:mt-[232px] lg:mt-[125px]">
-      <div className=" z-10 ml-[20px] mr-[32px]">
-        <h1 className="text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
-          {caseInfo.title}
+    <div className="flex ml-[20px] flex-row-reverse md:flex-col-reverse lg:flex-row-reverse md:items-center lg:justify-between mt-10 sm:mt-40 md:mt-58 lg:mt-32">
+      <div className="z-10 ml-[20px] mr-[32px]">
+        <h1 className=" md:hidden lg:block text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
+          Development
         </h1>
         <p className=" inline-block font-normal text-[16px] leading-[217%] font-helvetica-font lg:font-epilogue-font md:hidden lg:inline-block text-black-900-222222 text-left relative max-w-[481px] break-words">
           {caseInfo.paragraph}
@@ -84,18 +131,23 @@ const CasesMainPage: React.FC<CasesType> = ({ currentCase }) => {
           #01
         </div>
 
-        <div className="max-w-[529px] hidden md:block lg:hidden ">
+        <div className="max-w-[600px] hidden md:block lg:hidden ">
           <img
-            className={`float-right ml-5 ${
+            className={`float-left mr-5 ${
               caseInfo.title === "Tornado" || "Bachu"
                 ? "w-[330px] h-[240px]"
                 : "w-[32.05vw] h-[32.6vh]"
             }`}
             src={caseInfo.img}
           />
-          <p className="mt-3 text-black text-[20px] leading-[200%] font-normal">
-            {caseInfo.paragraph}
-          </p>
+          <div>
+            <h1 className=" lg:hidden inline-block text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
+              Development
+            </h1>
+            <p className="mt-3 text-black text-[20px] leading-[200%] font-normal">
+              {caseInfo.paragraph}
+            </p>
+          </div>
         </div>
 
         <svg
@@ -186,4 +238,4 @@ const CasesMainPage: React.FC<CasesType> = ({ currentCase }) => {
   );
 };
 
-export default CasesMainPage;
+export default DevPage;

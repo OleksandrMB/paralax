@@ -13,6 +13,7 @@ import CarouselPage from "./pages/CarouselPage";
 import CardPage from "./components/CardPage";
 import CalendarPage from "./pages/CalendarPage";
 import CasesMainPage from "./pages/casesPages/CasesMainPage";
+import DevPage from "./pages/casesPages/DevPage";
 
 enum Theme {
   Light = "light",
@@ -28,7 +29,8 @@ type ThemeType = {
 
 function App() {
   const [currentPage, setcurrentPage] = useState(0);
-  const [currentCase, setcurrentCase] = useState("");
+  const [currentCase, setcurrentCase] = useState("HomeCase");
+  console.log(currentCase);
   const [isAnimating, setIsAnimating] = useState(false);
   const numberOfPages = currentCase === "HomeCase" ? 8 : 4;
   const cases: ThemeType =
@@ -40,7 +42,12 @@ function App() {
           3: { theme: Theme.Light, Component: <ServicesPage /> },
           4: {
             theme: Theme.Light,
-            Component: <CarouselPage setcurrentCase={setcurrentCase} />,
+            Component: (
+              <CarouselPage
+                setcurrentPage={setcurrentPage}
+                setcurrentCase={setcurrentCase}
+              />
+            ),
           },
           5: { theme: Theme.Dark, Component: <AIPage /> },
           6: { theme: Theme.Light, Component: <SolutionsPage /> },
@@ -48,10 +55,24 @@ function App() {
           8: { theme: Theme.Light, Component: <CalendarPage /> },
         }
       : {
-          0: { theme: Theme.Light, Component: <CasesMainPage /> },
-          1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
+          0: {
+            theme: Theme.Light,
+            Component: <CasesMainPage currentCase={currentCase} />,
+          },
+          1: {
+            theme: Theme.Light,
+            Component: <DevPage currentCase={currentCase} />,
+          },
           2: { theme: Theme.Light, Component: <KickOffPage /> },
-          3: { theme: Theme.Light, Component: <ServicesPage /> },
+          3: {
+            theme: Theme.Light,
+            Component: (
+              <CarouselPage
+                setcurrentPage={setcurrentPage}
+                setcurrentCase={setcurrentCase}
+              />
+            ),
+          },
         };
 
   const transitions = useTransition(currentPage, {
