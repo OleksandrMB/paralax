@@ -15,44 +15,44 @@ const CASE_DATA: CasesData = {
     title: "Tornado",
     paragraph:
       "We have built the website using React and created  back-end architecture with Django, developed a specialized smart contract and integrated Metamask. ",
-    img: "/imgs/Tornado.png",
+    img: "/imgs/casesImgs/tornado2main.png",
   },
   mySun: {
     title: "MySun",
     paragraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    img: "/imgs/mySun.png",
+    img: "/imgs/casesImgs/mySun2.png",
   },
   bachu: {
     title: "Bachu",
     paragraph:
       "We have integrated an ML model developed for recognizing and counting military vehicles and Russian soldiers from each users' photos. We have also built a back-end architecture to centralize the data from apps and place the reports on a map.",
-    img: "/imgs/bachu.png",
+    img: "/imgs/casesImgs/bachu2.png",
   },
   saveUA: {
     title: "SaveUA",
     paragraph:
-      "Numuw is a healthcare platform for performing screening and providing treatment to pediatric patients by licensed therapists. Parents can book sessions, attend video consultations and access medical history within this app.",
-    img: "/imgs/saveUA.png",
+      "We have built a chatbot for two platforms using Python and integrated a user verification protocol. Aside from that, we made a dashboard that makes it easy to track how many people are ready to help, how many requests have been submitted, in which areas the help is needed, and how quickly the support is provided.",
+    img: "/imgs/casesImgs/saveUA2.png",
   },
   forpost: {
     title: "Forpost",
     paragraph:
       "We securely synchronized the app’s database with the governmental one to receive updates about vehicles in real-time without disclosing owners’ personal info.",
-    img: "/imgs/forpost.png",
+    img: "/imgs/casesImgs/forpost2.png",
   },
   interLegion: {
     title: "International Legion",
     paragraph:
       "The biggest challenge was to build an operation and communication process between our team of IT volunteers (front- and back-end developers, UI/UX designer, and DevOps), the government, and the call center in the first three weeks of the war.",
-    img: "/imgs/interLegion.png",
+    img: "/imgs/casesImgs/interLegion2.png",
   },
 };
 
 type StackImg = { img: string };
 
 type StackData = {
-  [key: string]: StackImg[] | CaseInfo | undefined;
+  [key: string]: StackImg[] | undefined;
 };
 
 const stack: StackData = {
@@ -63,36 +63,41 @@ const stack: StackData = {
     { img: "/icons/casesIcons/swift.png" },
     { img: "/icons/casesIcons/touchicon.png" },
   ],
-  mySun: {
-    title: "MySun",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    img: "/imgs/mySun.png",
-  },
-  bachu: {
-    title: "Bachu",
-    paragraph:
-      "We have integrated an ML model developed for recognizing and counting military vehicles and Russian soldiers from each users' photos. We have also built a back-end architecture to centralize the data from apps and place the reports on a map.",
-    img: "/imgs/bachu.png",
-  },
-  saveUA: {
-    title: "SaveUA",
-    paragraph:
-      "Numuw is a healthcare platform for performing screening and providing treatment to pediatric patients by licensed therapists. Parents can book sessions, attend video consultations and access medical history within this app.",
-    img: "/imgs/saveUA.png",
-  },
-  forpost: {
-    title: "Forpost",
-    paragraph:
-      "We securely synchronized the app’s database with the governmental one to receive updates about vehicles in real-time without disclosing owners’ personal info.",
-    img: "/imgs/forpost.png",
-  },
-  interLegion: {
-    title: "International Legion",
-    paragraph:
-      "The biggest challenge was to build an operation and communication process between our team of IT volunteers (front- and back-end developers, UI/UX designer, and DevOps), the government, and the call center in the first three weeks of the war.",
-    img: "/imgs/interLegion.png",
-  },
+  mySun: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
+  bachu: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
+  saveUA: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
+  forpost: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
+  interLegion: [
+    { img: "/icons/casesIcons/django.png" },
+    { img: "/icons/casesIcons/React.png" },
+    { img: "/icons/casesIcons/MetaMask.png" },
+    { img: "/icons/casesIcons/swift.png" },
+    { img: "/icons/casesIcons/touchicon.png" },
+  ],
 };
 
 type CasesType = {
@@ -102,52 +107,93 @@ type CasesType = {
 const DevPage: React.FC<CasesType> = ({ currentCase }) => {
   const caseInfo = CASE_DATA[currentCase];
   const caseStack = stack[currentCase];
+  const getCaseBool = (caseTitle: "Tornado" | "MySun" | "Bachu"): boolean => {
+    return caseInfo.title === caseTitle;
+  };
   if (!caseInfo) {
     return <div>Case not found</div>;
   }
+  if (!caseStack) {
+    return <div>Case not found</div>;
+  }
+
   return (
-    <div className="flex ml-[20px] flex-row-reverse md:flex-col-reverse lg:flex-row-reverse md:items-center lg:justify-between mt-10 sm:mt-40 md:mt-58 lg:mt-32">
+    <div className="flex md:ml-[20px] flex-row-reverse md:flex-col-reverse lg:flex-row-reverse md:items-center lg:justify-around md:mt-10 sm:mt-20 md:mt-58 lg:mt-32">
       <div className="z-10 ml-[20px] mr-[32px]">
         <h1 className=" md:hidden lg:block text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
           Development
         </h1>
-        <p className=" inline-block font-normal text-[16px] leading-[217%] font-helvetica-font lg:font-epilogue-font md:hidden lg:inline-block text-black-900-222222 text-left relative max-w-[481px] break-words">
-          {caseInfo.paragraph}
-        </p>
+        <div>
+          <p className=" inline-block font-normal text-[16px] leading-[217%] font-epilogue-font md:hidden lg:inline-block text-black-900-222222 text-left relative max-w-[481px] break-words">
+            {caseInfo.paragraph}
+          </p>
+          <div className="flex md:hidden lg:flex gap-[25px] md:mt-[30px] md:my-[30px]">
+            {caseStack.map((img) => {
+              return <img src={img.img} />;
+            })}
+          </div>
+        </div>
 
         <img
           className={` z-10 inline-block md:hidden lg:hidden ${
+            getCaseBool("MySun") ? "h-[280px] w-[222px]" : ""
+          } ${
             caseInfo.title === "Tornado" || "Bachu"
-              ? "w-[282px] h-[205px]"
+              ? "w-[270px] h-[307px]"
               : "w-[204px] h-[257px]"
-          }  mt-[10px]`}
-          src={caseInfo.img}
+          }`}
+          src={
+            getCaseBool("Tornado")
+              ? "/imgs/casesImgs/tornadoFixed.png"
+              : caseInfo.img
+          }
         />
 
         <div
           className=" lg:block hidden text-[#ffffff] text-left relative"
           style={{ font: "700 90px/140% 'Epilogue', sans-serif" }}
         >
-          #01
+          #02
         </div>
 
         <div className="max-w-[600px] hidden md:block lg:hidden ">
-          <img
-            className={`float-left mr-5 ${
-              caseInfo.title === "Tornado" || "Bachu"
-                ? "w-[330px] h-[240px]"
-                : "w-[32.05vw] h-[32.6vh]"
-            }`}
-            src={caseInfo.img}
-          />
+          <div className="flex float-left mr-5 items-center">
+            <img
+              className={`fixed left-[2vw] z-[1] ${
+                getCaseBool("Tornado") ? "" : "hidden"
+              } ${
+                caseInfo.title === "Tornado" || "Bachu"
+                  ? "w-[137px] h-[273px]"
+                  : "w-[32.05vw] h-[32.6vh]"
+              }`}
+              src="/imgs/casesImgs/tornado2second.png"
+            />
+            <img
+              className={`z-[2] inline-block mt-[-25px] ${
+                getCaseBool("MySun")
+                  ? "h-[362px] w-[294px]"
+                  : "h-[362px] w-[294px]"
+              } ${
+                caseInfo.title === "Tornado" || "Bachu"
+                  ? "w-[174px] h-[350px]"
+                  : "w-[32.05vw] h-[32.6vh]"
+              }`}
+              src={caseInfo.img}
+            />
+          </div>
           <div>
-            <h1 className=" lg:hidden inline-block text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
+            <h1 className="lg:hidden mb-[10px] inline-block text-black-900-222222 text-left relative text-[32px] lg:text-[48px] font-bold leading-[140%] font-epilogue-font">
               Development
             </h1>
-            <p className="mt-3 text-black text-[20px] leading-[200%] font-normal">
+            <p className="text-black text-[22px] font-epilogue-font leading-[200%] font-normal">
               {caseInfo.paragraph}
             </p>
           </div>
+        </div>
+        <div className="hidden md:flex lg:hidden h-[40px] mt-[30px] gap-[25px] justify-end">
+          {caseStack.map((img) => {
+            return <img className="" src={img.img} />;
+          })}
         </div>
 
         <svg
@@ -174,19 +220,28 @@ const DevPage: React.FC<CasesType> = ({ currentCase }) => {
           />
         </svg>
       </div>
-      <img
-        className={`hidden lg:block ${
-          caseInfo.title === "Tornado" || "Bachu"
-            ? "w-[600px] h-[420px] CasesMainPage-1260:w-[680px] CasesMainPage-1260:h-[500px]"
-            : "h-[576px] w-[439px]"
-        }`}
-        src={caseInfo.img}
-      />
-      <div
-        className=" z-[2] absolute bottom-[6vh] left-[34vw] md:bottom-[10vh] md:left-[15vw] lg:hidden inline-block text-[#ffffff] text-left"
-        style={{ font: "700 90px/140% 'Epilogue', sans-serif" }}
-      >
-        #01
+      <div className="flex items-center">
+        <img
+          className={`hidden ${
+            caseInfo.title === "Tornado" ? "lg:block 2xl:fixed " : "hidden"
+          }  z-[1] 2xl:left-[130px] ${
+            caseInfo.title === "Tornado" || "Bachu"
+              ? "w-[185px] h-[368px]"
+              : "h-[576px] w-[439px]"
+          }`}
+          src="/imgs/casesImgs/tornado2second.png"
+        />
+        <img
+          className={`hidden lg:block z-[2] ${
+            caseInfo.title === "Tornado"
+              ? "w-[220px] h-[437px]"
+              : "h-[561px] w-[460px]"
+          } ${getCaseBool("MySun") ? "h-[561px] w-[460px]" : ""}`}
+          src={caseInfo.img}
+        />
+      </div>
+      <div className=" z-[2] absolute bottom-[1vh] font-bold text-[74px] md:text-[90px] leading-[140%] font-epilogue-font left-[34vw] md:bottom-[10vh] md:left-[15vw] lg:hidden inline-block text-[#ffffff] text-left">
+        #02
       </div>
       <svg
         className="absolute hidden md:block lg:hidden left-[50vw] bottom-[3vh]"
@@ -220,7 +275,7 @@ const DevPage: React.FC<CasesType> = ({ currentCase }) => {
         fill="none"
       >
         <path
-          d="M72.8379 1.57031C72.8379 1.57031 30.4413 74.2016 64.8684 134.353"
+          d="M72.8379 1.57031C72.8379 1.57031 30.4413 74.2026 64.8684 134.353"
           stroke="white"
           stroke-width="2.3814"
           stroke-linecap="round"

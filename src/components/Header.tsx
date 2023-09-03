@@ -3,10 +3,16 @@ const headerButtons = ["Services", "AI Solutions", "Wow cases", "Get in touch"];
 interface HeaderProps {
   theme: "dark" | "light";
   changePage: (pageIndex: number) => void;
+  setcurrentCase: (caseName: string) => void;
   currentPage: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
+const Header: React.FC<HeaderProps> = ({
+  theme,
+  changePage,
+  currentPage,
+  setcurrentCase,
+}) => {
   const handleButtonClick = (btnName: string) => {
     return () => {
       let pageIndex;
@@ -43,6 +49,7 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
         alt="gart.tech logo"
         onClick={() => {
           changePage(0);
+          setcurrentCase("HomeCase");
         }}
         className=" cursor-pointer h-[49px] lg:h-[67px]"
       />
@@ -66,6 +73,10 @@ const Header: React.FC<HeaderProps> = ({ theme, changePage, currentPage }) => {
           );
         })}
       </div>
+      <img
+        className="lg:hidden mr-[30px] cursor-pointer"
+        src="/icons/Nav.png"
+      />
     </div>
   );
 };

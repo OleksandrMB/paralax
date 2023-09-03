@@ -14,6 +14,7 @@ import CardPage from "./components/CardPage";
 import CalendarPage from "./pages/CalendarPage";
 import CasesMainPage from "./pages/casesPages/CasesMainPage";
 import DevPage from "./pages/casesPages/DevPage";
+import ResultPage from "./pages/casesPages/ResultPage";
 
 enum Theme {
   Light = "light",
@@ -63,7 +64,10 @@ function App() {
             theme: Theme.Light,
             Component: <DevPage currentCase={currentCase} />,
           },
-          2: { theme: Theme.Light, Component: <KickOffPage /> },
+          2: {
+            theme: Theme.Light,
+            Component: <ResultPage currentCase={currentCase} />,
+          },
           3: {
             theme: Theme.Light,
             Component: (
@@ -129,6 +133,7 @@ function App() {
               currentPage={currentPage}
               theme={determineTheme()}
               changePage={setcurrentPage}
+              setcurrentCase={setcurrentCase}
             />
             {cases[item]?.Component || <HomePage />}
           </animated.div>
