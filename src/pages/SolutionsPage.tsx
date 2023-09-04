@@ -22,7 +22,11 @@ const NoiseCardsData = [
   },
 ];
 
-const SolutionsPage = () => {
+type SolutionsPageProps = {
+  setcurrentPage: (pageIndex: number) => void;
+};
+
+const SolutionsPage: React.FC<SolutionsPageProps> = ({ setcurrentPage }) => {
   return (
     <div className="flex flex-col h-full">
       <img
@@ -75,6 +79,7 @@ const SolutionsPage = () => {
       </div>
       <div className="flex  justify-center mt-[28px]">
         {/* add margin top 30px */}
+
         <GradientButton>Get in touch</GradientButton>
       </div>
     </div>

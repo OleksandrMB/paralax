@@ -1,7 +1,12 @@
+import React from "react";
 import GradientButton from "../components/GradientButton";
 import QualityCards from "../components/QualityCards";
 
-const AIPage = () => {
+type AIPageProps = {
+  setcurrentPage: (pageIndex: number) => void;
+};
+
+const AIPage: React.FC<AIPageProps> = ({ setcurrentPage }) => {
   return (
     <div>
       <div className="text-white flex flex-col gap-[27px] mt-[25px] lg:mt-[40px] mb-[30px] ml-[15px] md:ml-[35px] lg:ml-[60px]">

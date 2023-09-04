@@ -35,7 +35,7 @@ function App() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [readIsActive, setReadIsActive] = useState(false);
 
-  const numberOfPages = currentCase === "HomeCase" ? 8 : 4;
+  const numberOfPages = currentCase === "HomeCase" ? 9 : 4;
   const cases: ThemeType =
     currentCase === "HomeCase"
       ? {
@@ -43,13 +43,22 @@ function App() {
             theme: Theme.Light,
             Component: <HomePage setcurrentPage={setcurrentPage} />,
           },
-          1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
+          1: {
+            theme: Theme.Dark,
+            Component: (
+              <CompanyHighlights
+                readIsActive={readIsActive}
+                setReadIsActive={setReadIsActive}
+              />
+            ),
+          },
           2: {
             theme: Theme.Light,
             Component: (
               <KickOffPage
                 readIsActive={readIsActive}
                 setReadIsActive={setReadIsActive}
+                setcurrentPage={setcurrentPage}
               />
             ),
           },
@@ -63,9 +72,18 @@ function App() {
               />
             ),
           },
-          5: { theme: Theme.Dark, Component: <AIPage /> },
-          6: { theme: Theme.Light, Component: <SolutionsPage /> },
-          7: { theme: Theme.Light, Component: <TrustPage /> },
+          5: {
+            theme: Theme.Dark,
+            Component: <AIPage setcurrentPage={setcurrentPage} />,
+          },
+          6: {
+            theme: Theme.Light,
+            Component: <SolutionsPage setcurrentPage={setcurrentPage} />,
+          },
+          7: {
+            theme: Theme.Light,
+            Component: <TrustPage setcurrentPage={setcurrentPage} />,
+          },
           8: { theme: Theme.Light, Component: <CalendarPage /> },
         }
       : {
@@ -131,6 +149,7 @@ function App() {
         currentPage={currentPage}
         setPageIndex={setcurrentPage}
         currentCase={currentCase}
+        readIsActive={readIsActive}
       >
         {transitions((style, item) => (
           <animated.div

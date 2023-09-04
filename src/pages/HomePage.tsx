@@ -33,13 +33,8 @@ const HomePage: React.FC<HomePageProps> = ({ setcurrentPage }) => {
 
           <div className="flex flex-col md:flex-row gap-[20px] mb-[100px] md:gap-[0px] lg:gap-[18px] img-SmBreakPoint:ml-[35px] md:mt-[25px] lg:justify-start justify-center  md:mr-[0] home-1108:static img-SmBreakPoint:absolute img-SmBreakPoint:top-[730px]">
             <GradientButton>Get in touch</GradientButton>
-            <div
-              onClick={() => {
-                setcurrentPage(2);
-              }}
-            >
-              <GradientButton>Kick off</GradientButton>
-            </div>
+
+            <GradientButton>Kick off</GradientButton>
           </div>
         </div>
       </div>

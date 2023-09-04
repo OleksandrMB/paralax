@@ -11,7 +11,11 @@ const logos = [
   { logo: "/imgs/Sparkbird.png" },
 ];
 
-const TrustPage = () => {
+type TrustPageProps = {
+  setcurrentPage: (pageIndex: number) => void;
+};
+
+const TrustPage: React.FC<TrustPageProps> = ({ setcurrentPage }) => {
   return (
     <div className="text-[#222] flex flex-col z-20 mt-[15px] md:mt-[25px] lg:mt-[54px] h-full">
       <h1 className="font-epilogue-font text-[24px] md:text-[32px] lg:text-[48px] leading-[140%] font-bold ml-[15px] md:ml-[35px]">
@@ -33,7 +37,6 @@ const TrustPage = () => {
           </div>
         </div>
         <div className="flex justify-center mb-[20px] md:mb-[0px] md:mt-[20px] lg:mt-[80px]">
-          {/* add margin top 30px */}
           <GradientButton>Get in touch</GradientButton>
         </div>
       </div>

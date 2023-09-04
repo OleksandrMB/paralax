@@ -34,11 +34,13 @@ const NoiseCardsData = [
 interface KickOffPageProps {
   setReadIsActive: (active: boolean) => void;
   readIsActive: boolean;
+  setcurrentPage: (pageIndex: number) => void;
 }
 
 const KickOffPage: React.FC<KickOffPageProps> = ({
   setReadIsActive,
   readIsActive,
+  setcurrentPage,
 }) => {
   const handleRead = () => {
     return () => {
@@ -144,7 +146,6 @@ const KickOffPage: React.FC<KickOffPageProps> = ({
           readIsActive ? "hidden" : "flex"
         } `}
       >
-        {/* add margin top 30px */}
         <GradientButton>Get in touch</GradientButton>
       </div>
     </div>

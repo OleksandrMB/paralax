@@ -9,6 +9,7 @@ interface CardPageProps extends PropsWithChildren<CardPageType> {
   currentPage: number;
   setPageIndex: (pageIndex: number) => void;
   currentCase: string;
+  readIsActive: boolean;
 }
 
 const CardPage: React.FC<CardPageProps> = ({
@@ -17,6 +18,7 @@ const CardPage: React.FC<CardPageProps> = ({
   currentPage,
   setPageIndex,
   currentCase,
+  readIsActive,
 }: CardPageProps) => {
   return (
     <div
@@ -32,7 +34,9 @@ const CardPage: React.FC<CardPageProps> = ({
       >
         <div className="flex">
           <div className="flex flex-col w-full">{children}</div>
-          <div className="justify-self: end z-20">
+          <div
+            className={`${readIsActive ? "hidden" : ""} justify-self: end z-20`}
+          >
             <PageButtons
               currentPage={currentPage}
               setPageIndex={setPageIndex}
