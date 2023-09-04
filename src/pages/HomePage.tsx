@@ -1,7 +1,11 @@
 import GradientButton from "../components/GradientButton";
 import TeamCard from "../components/TeamCards";
 
-const HomePage = () => {
+type HomePageProps = {
+  setcurrentPage: (pageIndex: number) => void;
+};
+
+const HomePage: React.FC<HomePageProps> = ({ setcurrentPage }) => {
   return (
     <div className="flex justify-between h-full flex-col lg:flex-row ">
       <div className="order-2 h-full lg:order-1 lg:mt-[109px] mt-[20px] mr-[25px]">
@@ -29,7 +33,13 @@ const HomePage = () => {
 
           <div className="flex flex-col md:flex-row gap-[20px] mb-[100px] md:gap-[0px] lg:gap-[18px] img-SmBreakPoint:ml-[35px] md:mt-[25px] lg:justify-start justify-center  md:mr-[0] home-1108:static img-SmBreakPoint:absolute img-SmBreakPoint:top-[730px]">
             <GradientButton>Get in touch</GradientButton>
-            <GradientButton>Kick off</GradientButton>
+            <div
+              onClick={() => {
+                setcurrentPage(2);
+              }}
+            >
+              <GradientButton>Kick off</GradientButton>
+            </div>
           </div>
         </div>
       </div>

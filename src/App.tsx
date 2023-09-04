@@ -39,7 +39,10 @@ function App() {
   const cases: ThemeType =
     currentCase === "HomeCase"
       ? {
-          0: { theme: Theme.Light, Component: <HomePage /> },
+          0: {
+            theme: Theme.Light,
+            Component: <HomePage setcurrentPage={setcurrentPage} />,
+          },
           1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
           2: {
             theme: Theme.Light,
@@ -147,7 +150,9 @@ function App() {
               setReadIsActive={setReadIsActive}
               readIsActive={readIsActive}
             />
-            {cases[item]?.Component || <HomePage />}
+            {cases[item]?.Component || (
+              <HomePage setcurrentPage={setcurrentPage} />
+            )}
           </animated.div>
         ))}
       </CardPage>
