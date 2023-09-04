@@ -116,6 +116,7 @@ const DevPage: React.FC<CasesType> = ({ currentCase }) => {
   if (!caseStack) {
     return <div>Case not found</div>;
   }
+  console.log(caseInfo.title === "Tornado");
 
   return (
     <div className="flex md:ml-[20px] flex-row-reverse md:flex-col-reverse lg:flex-row-reverse md:items-center lg:justify-around md:mt-10 sm:mt-20 md:mt-58 lg:mt-32">
@@ -174,7 +175,7 @@ const DevPage: React.FC<CasesType> = ({ currentCase }) => {
                   ? "h-[362px] w-[294px]"
                   : "h-[362px] w-[294px]"
               } ${
-                caseInfo.title === "Tornado" || "Bachu"
+                caseInfo.title === "Tornado" || caseInfo.title === "Bachu"
                   ? "w-[174px] h-[350px]"
                   : "w-[32.05vw] h-[32.6vh]"
               }`}

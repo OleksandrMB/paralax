@@ -1,6 +1,7 @@
 import GradientButton from "../components/GradientButton";
 import NoiseCards from "../components/NoiseCards";
 import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState } from "react";
 
 const NoiseCardsData = [
   {
@@ -30,10 +31,26 @@ const NoiseCardsData = [
   },
 ];
 
-const KickOffPage = () => {
+interface KickOffPageProps {
+  setReadIsActive: (active: boolean) => void;
+  readIsActive: boolean;
+}
+
+const KickOffPage: React.FC<KickOffPageProps> = ({
+  setReadIsActive,
+  readIsActive,
+}) => {
+  const handleRead = () => {
+    return () => {
+      setReadIsActive(true);
+    };
+  };
+
   return (
     <div
-      className=" flex flex-col  justify-around lg:justify-start"
+      className={`flex ${
+        readIsActive ? "mt-[20px]" : "justify-around"
+      } flex-col lg:justify-start`}
       style={{
         height: "calc(100% - 85px)",
       }}
@@ -42,7 +59,11 @@ const KickOffPage = () => {
         <h1 className="ml-[15px] lg:ml-[60px] font-helvetica-font text-[24px] md:text-[32px] lg:text-[45px] leading-[140%] font-bold">
           Kick-Off
         </h1>
-        <p className="ml-[15px] lg:ml-[60px] block md:hidden lg:block font-helvetica-font text-[16px] lg:text-[22px] font-normal leading-[150%] mr-[14px] lg:mr-[61px]">
+        <p
+          className={` ${
+            readIsActive ? "md:block md:text-[22px]" : "md:hidden"
+          } ml-[15px] lg:ml-[60px] block lg:block font-helvetica-font text-[16px] lg:text-[22px] font-normal leading-[150%] mr-[14px] lg:mr-[61px]`}
+        >
           Kick-off as an efficient way to start cooperating with Gart is a
           certain win-win. It is a great opportunity for you to get acquainted
           with us and for us to find the best way to facilitate your big ideas
@@ -62,10 +83,19 @@ const KickOffPage = () => {
           );
         })}
       </div>
-      <div className="hidden md:flex lg:hidden justify-center">
+      <div
+        className={`hidden ${
+          readIsActive ? "hidden" : "md:flex "
+        } lg:hidden justify-center`}
+        onClick={handleRead()}
+      >
         <GradientButton bg={false}>Read More</GradientButton>
       </div>
-      <div className="ml-[15px] hidden md:flex lg:hidden flex-col gap-[20px] mr-[14px] lg:mr-[61px]">
+      <div
+        className={`ml-[15px] hidden lg:hidden flex-col gap-[20px] mr-[14px] lg:mr-[61px] ${
+          readIsActive ? "hidden" : "md:flex"
+        } `}
+      >
         <div className="grid grid-cols-2 gap-x-[18px] gap-y-[20px] ">
           <NoiseCards
             key={NoiseCardsData[0].title}
@@ -109,7 +139,11 @@ const KickOffPage = () => {
           })}
         </Swiper>
       </div>
-      <div className="flex justify-center lg:mt-[30px]">
+      <div
+        className={`justify-center lg:mt-[30px] ${
+          readIsActive ? "hidden" : "flex"
+        } `}
+      >
         {/* add margin top 30px */}
         <GradientButton>Get in touch</GradientButton>
       </div>

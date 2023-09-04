@@ -33,13 +33,23 @@ function App() {
   const [currentCase, setcurrentCase] = useState("HomeCase");
   console.log(currentCase);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [readIsActive, setReadIsActive] = useState(false);
+
   const numberOfPages = currentCase === "HomeCase" ? 8 : 4;
   const cases: ThemeType =
     currentCase === "HomeCase"
       ? {
           0: { theme: Theme.Light, Component: <HomePage /> },
           1: { theme: Theme.Dark, Component: <CompanyHighlights /> },
-          2: { theme: Theme.Light, Component: <KickOffPage /> },
+          2: {
+            theme: Theme.Light,
+            Component: (
+              <KickOffPage
+                readIsActive={readIsActive}
+                setReadIsActive={setReadIsActive}
+              />
+            ),
+          },
           3: { theme: Theme.Light, Component: <ServicesPage /> },
           4: {
             theme: Theme.Light,
@@ -134,6 +144,8 @@ function App() {
               theme={determineTheme()}
               changePage={setcurrentPage}
               setcurrentCase={setcurrentCase}
+              setReadIsActive={setReadIsActive}
+              readIsActive={readIsActive}
             />
             {cases[item]?.Component || <HomePage />}
           </animated.div>

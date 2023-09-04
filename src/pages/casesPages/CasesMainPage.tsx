@@ -124,9 +124,11 @@ const CasesMainPage: React.FC<CasesType> = ({ currentCase }) => {
       </div>
       <img
         className={`hidden lg:block ${
-          caseInfo.title === "Tornado" || "Bachu"
+          caseInfo.title === "Tornado" || caseInfo.title === "Bachu"
             ? "w-[600px] h-[420px] CasesMainPage-1260:w-[680px] CasesMainPage-1260:h-[500px]"
-            : "h-[576px] w-[439px]"
+            : caseInfo.title === "MySun"
+            ? "h-[576px] w-[400px]"
+            : "h-[576px] w-[439px] CasesMainPage-1260:w-[680px] CasesMainPage-1260:h-[500px]"
         }`}
         src={caseInfo.img}
       />

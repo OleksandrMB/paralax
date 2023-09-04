@@ -44,7 +44,11 @@ const Slide = ({ data }: { data: any }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-[7px] bg-white px-[30px] py-[47px] w-full h-full">
       <img
-        className="h-full w-[100vw] lg:w-[508px] ml-[-10px]"
+        className={`h-full ${
+          data.title === "My sun app"
+            ? " w-[20vw] lg:w-[308px]"
+            : "w-[100vw] lg:w-[508px]"
+        } ml-[-10px]`}
         src={data.img}
         alt={" img"}
       />

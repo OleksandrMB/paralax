@@ -24,6 +24,7 @@ type GradientButtonProps = {
 // };
 
 const GradientButton = ({ children, bg = true }: GradientButtonProps) => {
+  const handleClick = () => {};
   return (
     <div
       className={`group relative h-[59px] w-full lg:w-[212px]
@@ -31,6 +32,7 @@ const GradientButton = ({ children, bg = true }: GradientButtonProps) => {
     >
       {/* fix gradient */}
       <button
+        onClick={handleClick}
         className={`group-hover:backdrop-filter:blur-[10px] w-full h-full rounded-[2000px] text-white font-helvetica-font font-bold leading-[125%] absolute z-10 text-center group-hover:bg-1 ${
           bg
             ? "group-hover:border group-hover:border-[#564CEC] group-hover:backdrop-blur"

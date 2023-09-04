@@ -4,6 +4,8 @@ interface HeaderProps {
   theme: "dark" | "light";
   changePage: (pageIndex: number) => void;
   setcurrentCase: (caseName: string) => void;
+  setReadIsActive: (active: boolean) => void;
+  readIsActive: boolean;
   currentPage: number;
 }
 
@@ -12,6 +14,8 @@ const Header: React.FC<HeaderProps> = ({
   changePage,
   currentPage,
   setcurrentCase,
+  setReadIsActive,
+  readIsActive,
 }) => {
   const handleButtonClick = (btnName: string) => {
     return () => {
@@ -40,6 +44,10 @@ const Header: React.FC<HeaderProps> = ({
 
       changePage(pageIndex);
     };
+  };
+
+  const navHandleClick = () => {
+    setReadIsActive(false);
   };
 
   return (
@@ -75,7 +83,8 @@ const Header: React.FC<HeaderProps> = ({
       </div>
       <img
         className="lg:hidden mr-[30px] cursor-pointer"
-        src="/icons/Nav.png"
+        src={readIsActive ? "/icons/close.png" : "/icons/Nav.png"}
+        onClick={navHandleClick}
       />
     </div>
   );

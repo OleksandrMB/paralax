@@ -39,17 +39,6 @@ const TEAM_DATA = {
   },
 };
 
-const imgSizes = {
-  rodion: {
-    h: { sm: "", md: "", lg: "" },
-    w: { sm: "", md: "", lg: "" },
-  },
-  ivan: {
-    h: { sm: "", md: "", lg: "" },
-    w: { sm: "", md: "", lg: "" },
-  },
-};
-
 const TeamCards = () => {
   return (
     <div className="flex">
@@ -60,7 +49,7 @@ const TeamCards = () => {
           name="Rodion Bychkoviak"
           position="UI/UX Architect"
           linkedinUrl="https://www.linkedin.com/in/uiarchitector/"
-          radius="rounded-[25.43px]"
+          radius="rounded-[15px] md:rounded-[25.43px]"
           size="extraSmall"
         />
       </div>
@@ -97,7 +86,7 @@ const TeamCards = () => {
             position="Chief of BA/PM 
             department"
             linkedinUrl="https://www.linkedin.com/in/oksana-basova/"
-            radius="rounded-[25.43px]"
+            radius="rounded-[15px] md:rounded-[25.43px]"
             size="small"
           />
         </div>
@@ -108,7 +97,7 @@ const TeamCards = () => {
             name="Dmitry Bagow"
             position="CTO"
             linkedinUrl="https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"
-            radius="rounded-[25.43px]"
+            radius="rounded-[15px] md:rounded-[25.43px]"
             size="small"
           />
         </div>
