@@ -1,4 +1,15 @@
-const headerButtons = ["Services", "AI Solutions", "Wow cases", "Get in touch"];
+const headerButtonsFirst = [
+  "Services",
+  "AI Solutions",
+  "Wow cases",
+  "Get in touch",
+];
+const headerButtonsSeccond = [
+  "Journey",
+  "About us",
+  "Wow cases",
+  "Get in touch",
+];
 
 interface HeaderProps {
   theme: "dark" | "light";
@@ -24,6 +35,9 @@ const Header: React.FC<HeaderProps> = ({
       switch (btnName) {
         case "Services":
           pageIndex = 3;
+          break;
+        case "About us":
+          pageIndex = 0;
           break;
         case "Journey":
           pageIndex = 1;
@@ -67,19 +81,29 @@ const Header: React.FC<HeaderProps> = ({
         }}
         className=" gap-5 hidden lg:flex lg:mr-[95px]"
       >
-        {headerButtons.map((btnLabel) => {
-          const label =
-            currentPage === 0 && btnLabel === "Services" ? "Journey" : btnLabel;
-          return (
-            <button
-              key={label}
-              className="font-neue-machina text-17 font-medium leading-150 cursor-pointer"
-              onClick={handleButtonClick(label)}
-            >
-              {label}
-            </button>
-          );
-        })}
+        {currentPage > 0
+          ? headerButtonsSeccond.map((btnLabel) => {
+              return (
+                <button
+                  key={btnLabel}
+                  className="font-neue-machina text-17 font-medium leading-150 cursor-pointer"
+                  onClick={handleButtonClick(btnLabel)}
+                >
+                  {btnLabel}
+                </button>
+              );
+            })
+          : headerButtonsFirst.map((btnLabel) => {
+              return (
+                <button
+                  key={btnLabel}
+                  className="font-neue-machina text-17 font-medium leading-150 cursor-pointer"
+                  onClick={handleButtonClick(btnLabel)}
+                >
+                  {btnLabel}
+                </button>
+              );
+            })}
       </div>
       <img
         className="lg:hidden mr-[30px] cursor-pointer"

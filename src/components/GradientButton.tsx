@@ -44,7 +44,7 @@ const GradientButton = ({ children, bg = true }: GradientButtonProps) => {
       <div
         className={` ${
           bg ? "" : "hidden"
-        } bg-gradient-to-r from-gradient-start to-gradient-end rounded-[2000px]  w-full h-full left-0 right-0 ml-auto mr-auto absolute group-hover:w-[68%] group-hover:bottom-[9px] group-hover:ease-in duration-200 `}
+        } bg-gradient-to-r from-[#564FE3] to-[#94D1F3] rounded-[2000px]  w-full h-full left-0 right-0 ml-auto mr-auto absolute group-hover:w-[68%] group-hover:bottom-[9px] group-hover:ease-in duration-200 `}
       />
     </div>
   );
