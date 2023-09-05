@@ -41,6 +41,7 @@ const Header: React.FC<HeaderProps> = ({
           break;
         case "Journey":
           pageIndex = 1;
+
           break;
         case "AI Solutions":
           pageIndex = 5;
@@ -49,14 +50,20 @@ const Header: React.FC<HeaderProps> = ({
           pageIndex = 4;
           break;
         case "Get in touch":
-          pageIndex = 0;
+          pageIndex = 8;
           break;
         default:
           pageIndex = 0;
           break;
       }
-
-      changePage(pageIndex);
+      if (btnName === "About us") {
+        setcurrentCase("AboutCase");
+        changePage(pageIndex);
+        return;
+      } else {
+        changePage(pageIndex);
+        setcurrentCase("HomeCase");
+      }
     };
   };
 
@@ -65,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <div className="pl-[15px] md:pl-[30px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch border-b border-[#E2E2E2] lg:border-none">
+    <div className="pl-[15px] z-50 md:pl-[30px] flex justify-between items-center h-[80px] lg:h-[108px] self-stretch border-b border-[#E2E2E2] lg:border-none">
       <img
         src={theme === "dark" ? "/icons/whiteLogo.png" : "/icons/blackLogo.png"}
         alt="gart.tech logo"

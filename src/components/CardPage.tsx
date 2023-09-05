@@ -29,7 +29,7 @@ const CardPage: React.FC<CardPageProps> = ({
       }`}
     >
       <div
-        className="rounded-36 border-[5px] lg:border-10 border-70 bg-20 h-full backdrop-blur-[11px]"
+        className="rounded-36 border-[5px] lg:border-10 border-70 bg-20 h-full backdrop-blur-[11px] overflow-y-clip"
         style={{ position: "relative" }}
       >
         <div className="flex">

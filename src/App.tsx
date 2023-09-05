@@ -15,6 +15,8 @@ import CalendarPage from "./pages/CalendarPage";
 import CasesMainPage from "./pages/casesPages/CasesMainPage";
 import DevPage from "./pages/casesPages/DevPage";
 import ResultPage from "./pages/casesPages/ResultPage";
+import StoryPage from "./pages/aboutCase/StoryPage";
+import MissionPage from "./pages/aboutCase/MissionPage";
 
 enum Theme {
   Light = "light",
@@ -35,7 +37,8 @@ function App() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [readIsActive, setReadIsActive] = useState(false);
 
-  const numberOfPages = currentCase === "HomeCase" ? 9 : 4;
+  const numberOfPages =
+    currentCase === "HomeCase" ? 9 : currentCase === "AboutCase" ? 2 : 4;
   const cases: ThemeType =
     currentCase === "HomeCase"
       ? {
@@ -85,6 +88,17 @@ function App() {
             Component: <TrustPage setcurrentPage={setcurrentPage} />,
           },
           8: { theme: Theme.Light, Component: <CalendarPage /> },
+        }
+      : currentCase === "AboutCase"
+      ? {
+          0: {
+            theme: Theme.Light,
+            Component: <StoryPage />,
+          },
+          1: {
+            theme: Theme.Light,
+            Component: <MissionPage />,
+          },
         }
       : {
           0: {

@@ -12,7 +12,7 @@ module.exports = {
         "on-tablet": "744px",
         "custom-md": "1592px",
         "img-LgBreakPoint": "1700px",
-        "img-MdBreakPoint": "1280px",
+        "img-MdBreakPoint": "1282px",
         "img-SmBreakPoint": "1023px",
         "home-1108": "1108px",
         "img-startPoint": "420px",
@@ -27,6 +27,7 @@ module.exports = {
         "CasesMainPage-1260": "1260px",
         "CasesMainPage-1480": "1480px",
         "CasesMainPage-670": "670px",
+        "MissionPage-1365": "1365px",
       },
       borderRadius: {
         36: "36px",

@@ -17,7 +17,9 @@ const PageButtons: React.FC<PageButtonsProps> = ({
 
   return (
     <div className=" flex flex-col gap-[10px] mt-[363px]">
-      {Array(currentCase === "HomeCase" ? 9 : 4)
+      {Array(
+        currentCase === "HomeCase" ? 9 : currentCase === "AboutCase" ? 2 : 4
+      )
         .fill(null)
         .map((_, index) => (
           <button

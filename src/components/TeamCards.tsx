@@ -54,7 +54,7 @@ const TeamCards = () => {
         />
       </div>
       <div className="flex flex-col gap-[30px] ml-[10px]">
-        <div className="group img-MdBreakPoint:w-[200px] img-MdBreakPoint:h-[310px] img-LgbreakPoint:w-[237px] img-LgbreakPoint:h-[337px] md:w-[154px] md:h-[256px] w-[102.698px] h-[147.628px] relative">
+        <div className="group img-MdBreakPoint:w-[200px] img-MdBreakPoint:h-[33vh] img-LgbreakPoint:w-[237px] img-LgbreakPoint:h-[337px] md:w-[154px] md:h-[256px] w-[102.698px] h-[147.628px] relative">
           <TeamCard
             image="/imgs/IvanFull.png"
             description="Architecture and development of the company"
